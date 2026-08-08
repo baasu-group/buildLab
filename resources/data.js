@@ -124,8 +124,9 @@ window.resourceCatalog = {
       { title: "Web forms accessibility", url: "https://www.w3.org/WAI/tutorials/forms/", source: "W3C Web Accessibility Initiative", level: "Practice", reason: "Design usable, correctly labeled forms for the product." }
     ],
     videos: [
-      { title: "Figma UI UX Design Tutorial for Beginners", url: "https://www.youtube.com/watch?v=ezldKx-jPag", channel: "freeCodeCamp.org", outcome: "Practice creating layouts, components, and a complete interface in Figma.", level: "Foundation" },
-      { title: "Figma for Beginners", url: "https://www.youtube.com/results?search_query=Figma+for+beginners+design+systems+components", channel: "YouTube search", outcome: "Find current component, auto-layout, and design-system walkthroughs.", level: "Core" },
+      { title: "Figma UI Design Tutorial for Beginners", url: "https://www.youtube.com/watch?v=hHY7FyPxzzE", channel: "HBA Services", outcome: "Practice Figma fundamentals, components, design systems, and a landing-page workflow.", level: "Foundation" },
+      { title: "Auto Layout Tutorial for Beginners", url: "https://www.youtube.com/watch?v=jNLjA4HsBBw", channel: "Figma community educator", outcome: "Design flexible layouts that adapt to content and implementation constraints.", level: "Core" },
+      { title: "Figma Design System and Variables Guide", url: "https://www.youtube.com/watch?v=gmGMjqJsuJQ", channel: "Undesign", outcome: "Build a small design system with variables, relationships, and reusable UI patterns.", level: "Systems" },
       { title: "UX Research and Design Process", url: "https://www.youtube.com/results?search_query=UX+research+user+flows+wireframes+real+project", channel: "YouTube search", outcome: "Compare practical research and product-design workflows.", level: "Practice" },
       { title: "Design Systems in Figma", url: "https://www.youtube.com/results?search_query=Figma+design+system+variables+components+tutorial", channel: "YouTube search", outcome: "Explore current approaches to scalable visual systems.", level: "Systems" }
     ],
@@ -169,7 +170,8 @@ window.resourceCatalog = {
     ],
     videos: [
       { title: "Playwright API Testing Tutorial", url: "https://www.youtube.com/watch?v=4-E5PVM4LuI", channel: "Test Automation 101", outcome: "Write API tests, validate responses, handle auth, and connect testing to CI/CD.", level: "API automation" },
-      { title: "Playwright testing for beginners", url: "https://www.youtube.com/watch?v=H2-5ecFwHHQ", channel: "LambdaTest", outcome: "Learn browser automation, locators, assertions, and practical test structure.", level: "Foundation" },
+      { title: "Postman Beginner’s Course – API Testing", url: "https://www.youtube.com/watch?v=VywxIQ2ZXw4", channel: "freeCodeCamp.org", outcome: "Learn API requests, assertions, collections, and test automation basics.", level: "Foundation" },
+      { title: "Postman API Test Automation for Beginners", url: "https://www.youtube.com/watch?v=zp5Jh2FIpF0", channel: "freeCodeCamp.org", outcome: "Practice turning API checks into repeatable automated tests.", level: "API automation" },
       { title: "Postman API testing tutorial", url: "https://www.youtube.com/results?search_query=Postman+API+testing+test+scripts+beginner", channel: "YouTube search", outcome: "Find current API testing workflows and assertion examples.", level: "API" },
       { title: "Software testing real-world project", url: "https://www.youtube.com/results?search_query=software+testing+real+world+project+bug+report+test+case", channel: "YouTube search", outcome: "Compare practical test planning, bug reporting, and regression workflows.", level: "Practice" }
     ],
@@ -214,6 +216,7 @@ window.resourceCatalog = {
     videos: [
       { title: "Docker and Kubernetes Full Course", url: "https://www.youtube.com/watch?v=3c-iBn73dDE", channel: "TechWorld with Nana", outcome: "Understand containers, images, Dockerfiles, and orchestration concepts.", level: "Core" },
       { title: "GitHub Actions tutorial", url: "https://www.youtube.com/watch?v=R8_veQiYBjI", channel: "TechWorld with Nana", outcome: "Create CI workflows that build and test software automatically.", level: "CI/CD" },
+      { title: "Docker Images and GitHub Actions CI/CD", url: "https://www.youtube.com/watch?v=VX4gPhkBSCk", channel: "Minich Analytics", outcome: "Connect Docker image builds to a basic GitHub Actions deployment pipeline.", level: "Project" },
       { title: "DevOps project with Docker and CI/CD", url: "https://www.youtube.com/results?search_query=DevOps+Docker+GitHub+Actions+real+world+project", channel: "YouTube search", outcome: "Find current end-to-end delivery projects and compare approaches.", level: "Project" },
       { title: "Linux and deployment fundamentals", url: "https://www.youtube.com/results?search_query=Linux+deployment+Docker+production+beginner", channel: "YouTube search", outcome: "Practice the operational concepts needed to support a deployed service.", level: "Foundation" }
     ],
@@ -258,6 +261,7 @@ window.resourceCatalog = {
     videos: [
       { title: "But what is a neural network?", url: "https://www.youtube.com/watch?v=aircAruvnKk", channel: "3Blue1Brown", outcome: "Build an intuitive understanding of neural networks and gradient-based learning.", level: "Foundation" },
       { title: "Machine Learning for Everybody", url: "https://www.youtube.com/watch?v=i_LwzRVP7bg", channel: "freeCodeCamp.org", outcome: "Follow a beginner-friendly practical introduction to machine learning.", level: "Core" },
+      { title: "Machine Learning with Python and Scikit-Learn", url: "https://www.youtube.com/watch?v=hDKCxebp88A", channel: "Jovian", outcome: "Follow a practical, hands-on ML workflow and build a project from scratch.", level: "Project" },
       { title: "Machine learning project workflow", url: "https://www.youtube.com/results?search_query=machine+learning+project+data+cleaning+evaluation+Python", channel: "YouTube search", outcome: "Compare complete workflows from data preparation through evaluation.", level: "Project" },
       { title: "Responsible AI and LLM evaluation", url: "https://www.youtube.com/results?search_query=responsible+AI+LLM+evaluation+production+tutorial", channel: "YouTube search", outcome: "Explore current approaches to safety, evaluation, and production AI quality.", level: "Production" }
     ],
