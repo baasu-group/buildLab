@@ -81,7 +81,7 @@ If `origin` already exists, use `git remote -v` to check it and skip `git remote
 
 The workflow uploads `buildlab/` as the artifact root. This makes `buildlab/index.html` the homepage of the Pages site; the URL does not include `/buildlab/`.
 
-The workflow listens for pushes to `main`, but its deployment job runs only when the GitHub actor is exactly `basan-ta` or `baasu-group`:
+The workflow listens for `main` pushes that change `buildlab/**` or the deployment workflow itself. Intern code and resource changes outside `buildlab/` do not start a deployment. Its deployment job also runs only when the GitHub actor is exactly `basan-ta` or `baasu-group`:
 
 ```yaml
 if: ${{ github.ref == 'refs/heads/main' && (github.actor == 'basan-ta' || github.actor == 'baasu-group') }}
