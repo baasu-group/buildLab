@@ -122,5 +122,11 @@ The project is divided into four main disciplines.
                                           │
                                          QA
                                           │
-                                          ↓
-                                         Release
+                                        ↓
+                                        Release
+
+---
+
+# 🌐 Internship website
+
+The static GitHub Pages site is available in [`index.html`](./index.html). Configure application, feedback, contact, community, and calendar links in [`script.js`](./script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md).
