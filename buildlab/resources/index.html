@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Internship learning resources, official documentation, videos, and real-world practice." />
+    <title>Learning Path | Engineering Internship</title>
+    <link rel="stylesheet" href="../styles.css?v=20260808" />
+  </head>
+  <body class="resource-page">
+    <a class="skip-link" href="#resource-main">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../index.html" aria-label="Engineering Internship home"><span class="brand-mark">EI</span><span>Engineering Internship</span></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+          <a href="../index.html#program">Program</a><a href="../index.html#journey">Six months</a><a href="../index.html#tracks">Tracks</a><a href="../index.html#resources">Resources</a><a class="nav-cta" href="../index.html#apply">Apply</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="resource-main" data-resource-app>
+      <section class="resource-hero section-pad">
+        <div class="container">
+          <a class="resource-back" href="../index.html#resources">← Back to all resources</a>
+          <div class="resource-hero-grid">
+            <div>
+              <div class="resource-kicker"><span data-resource-icon>✦</span><span data-resource-status>Learning path</span><span class="resource-dot">●</span><span data-resource-phase>Months 1–6</span></div>
+              <h1 data-resource-title>Learning Path</h1>
+              <p class="resource-hero-summary" data-resource-summary>Use this page to learn the concepts, study authoritative documentation, and apply your knowledge to real product work.</p>
+              <div class="resource-stack" data-resource-stack></div>
+            </div>
+            <div class="resource-hero-note"><span class="eyebrow">The practice loop</span><strong>Learn → Build → Review → Improve</strong><p>Every resource connects to a practical output you can explain, review, and apply to the Team Management Platform.</p></div>
+          </div>
+          <div class="resource-stats"><div><strong data-resource-topic-count>0</strong><span>topic modules</span></div><div><strong data-resource-doc-count>0</strong><span>documentation links</span></div><div><strong data-resource-video-count>0</strong><span>video resources</span></div><div><strong data-resource-practice-count>0</strong><span>practice tasks</span></div></div>
+        </div>
+      </section>
+
+      <section class="resource-content section-pad">
+        <div class="container">
+          <div class="resource-section-heading"><div><p class="eyebrow">What to learn</p><h2>Follow the path in order—or jump to the skill you need.</h2></div><p>Use the phase labels to understand when a topic supports learning and practice, and when it becomes part of intensive project delivery.</p></div>
+          <div class="topic-grid" data-resource-topics></div>
+
+          <div class="resource-library" id="library">
+            <div class="resource-section-heading compact"><div><p class="eyebrow">Resource library</p><h2>Read the docs. Watch the work.</h2></div><p>Official documentation is the source of truth. Videos provide another explanation and a practical walkthrough.</p></div>
+            <div class="resource-tabs" role="tablist" aria-label="Resource categories"><button class="resource-tab is-active" id="docs-tab" type="button" role="tab" aria-selected="true" aria-controls="docs-panel" data-resource-tab="docs">Documentation <span data-resource-doc-count>0</span></button><button class="resource-tab" id="videos-tab" type="button" role="tab" aria-selected="false" aria-controls="videos-panel" data-resource-tab="videos">YouTube videos <span data-resource-video-count>0</span></button></div>
+            <section class="resource-panel is-active" id="docs-panel" role="tabpanel" aria-labelledby="docs-tab" data-resource-panel="docs"><div class="resource-link-grid" data-resource-docs></div></section>
+            <section class="resource-panel" id="videos-panel" role="tabpanel" aria-labelledby="videos-tab" data-resource-panel="videos" hidden><div class="resource-link-grid" data-resource-videos></div><a class="youtube-more" data-resource-youtube-search href="#" target="_blank" rel="noopener noreferrer">Explore more videos on YouTube ↗</a></section>
+          </div>
+
+          <section class="practice-section" id="practice"><div class="resource-section-heading compact"><div><p class="eyebrow">Real-world practice</p><h2>Turn learning into evidence.</h2></div><p>Complete these tasks, ask for review, and keep the output in your project notes or portfolio.</p></div><div class="practice-grid" data-resource-practice></div></section>
+        </div>
+      </section>
+    </main>
+
+    <section class="resource-empty section-pad" data-resource-empty hidden><div class="container empty-state"><p class="eyebrow">Choose a learning path</p><h1>That resource path is not available yet.</h1><p>Select one of the available fields to continue learning.</p><div class="empty-links" data-resource-choices></div><a class="button button-primary" href="../index.html#resources">Back to the resource hub</a></div></section>
+
+    <footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="../index.html"><span class="brand-mark">EI</span><span>Engineering Internship</span></a><p>Learn. Build. Collaborate. Ship.</p><p>Lead by <strong>basan-ta</strong></p></div><div class="footer-links"><a href="../index.html#program">Program</a><a href="../index.html#journey">Six months</a><a href="../index.html#tracks">Tracks</a><a href="../index.html#resources">Resources</a><a href="../index.html#apply">Apply</a></div><div class="footer-links"><a href="https://github.com/baasu-group/learning-resources" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../index.html#apply">Contact</a></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> Engineering Internship</span><span>Built for learning in public.</span></div></footer>
+
+    <script src="data.js"></script>
+    <script src="resource-page.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

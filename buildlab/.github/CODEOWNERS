@@ -1,0 +1,4 @@
+# This folder becomes the root of the standalone BuildLab repository.
+# Require the project lead to review every repository change.
+* @basan-ta
+/.github/ @basan-ta
