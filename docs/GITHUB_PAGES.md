@@ -15,6 +15,8 @@ const siteConfig = {
   linkedin: "https://www.linkedin.com/company/your-company",
   discord: "https://discord.gg/your-community",
   calendar: "https://cal.com/your-team/intro",
+  resourceDevops: "https://github.com/your-org/your-repository/tree/main/resources/devops",
+  resourceAiMl: "https://github.com/your-org/your-repository/tree/main/resources/ai-ml",
 };
 ```
 
@@ -26,6 +28,7 @@ Recommended future links:
 - GitHub: source code and contribution guide.
 - LinkedIn/community: announcements and cohort communication.
 - Calendar: mentor or orientation conversations.
+- Resource links: add roadmaps, documentation, practice work, tools, and project guidance for each field.
 
 Do not put passwords, API keys, private applicant data, or other secrets in this repository. GitHub Pages sites are public.
 
@@ -92,6 +95,7 @@ Check **Settings → Pages → Visit site** and the repository’s **Actions** t
 
 - Add a `CNAME` file only when a custom domain is configured from a branch source.
 - Add `assets/` for logos and optimized images.
+- Add `resources/frontend`, `resources/backend`, `resources/ui-ux`, `resources/qa`, `resources/devops`, and `resources/ai-ml` as the learning library grows.
 - Add an `about.html` or `faq.html` only when the homepage becomes too long.
 - Add a privacy notice before collecting applicant information.
 - Move form handling to a proper form service or backend; GitHub Pages itself does not process submissions.

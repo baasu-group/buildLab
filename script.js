@@ -7,6 +7,12 @@ const siteConfig = {
   linkedin: "", // Example: https://www.linkedin.com/company/your-company
   discord: "", // Example: https://discord.gg/your-community
   calendar: "", // Example: https://cal.com/your-team/intro
+  resourceFrontend: "INT-026-08-01/Frontend_Resources/README.md",
+  resourceBackend: "INT-026-08-01/Backend_resources/README.md",
+  resourceUiUx: "INT-026-08-01/UI_UX_resources/README.md",
+  resourceQa: "INT-026-08-01/QA_esources/README.md",
+  resourceDevops: "", // Example: https://github.com/baasu-group/learning-resources/tree/main/resources/devops
+  resourceAiMl: "", // Example: https://github.com/baasu-group/learning-resources/tree/main/resources/ai-ml
 };
 
 document.addEventListener("DOMContentLoaded", () => {

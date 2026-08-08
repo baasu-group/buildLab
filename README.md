@@ -71,6 +71,19 @@ The platform will allow users and teams to manage their daily work in one place.
 
 The exact scope may evolve as the team learns and receives feedback.
 
+## Learning resource hub
+
+The website includes a central resource hub for:
+
+- Frontend
+- Backend
+- UI/UX
+- QA
+- DevOps
+- AI/ML
+
+Each field can later contain roadmaps, documentation, practice assignments, tools, project guidance, and recommended references. Resource destinations are managed in [`script.js`](./script.js), so new links can be added without changing the page layout.
+
 ---
 
 # The Philosophy
