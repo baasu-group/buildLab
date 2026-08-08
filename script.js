@@ -16,7 +16,8 @@ const siteConfig = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#current-year").textContent = new Date().getFullYear();
+  const year = document.querySelector("#current-year");
+  if (year) year.textContent = new Date().getFullYear();
 
   document.querySelectorAll("[data-link]").forEach((element) => {
     const destination = siteConfig[element.dataset.link];
@@ -29,8 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  document.querySelectorAll("[data-resource-card]").forEach((card) => {
+    const resource = window.resourceCatalog?.[card.dataset.resourceCard];
+    if (!resource) return;
+    card.querySelector(".resource-status").textContent = resource.status;
+    card.querySelector(".resource-icon").textContent = resource.icon;
+    card.querySelector("[data-resource-card-topics]").textContent = resource.topics.length;
+    card.querySelector("[data-resource-card-docs]").textContent = resource.docs.length;
+    card.querySelector("[data-resource-card-videos]").textContent = resource.videos.length;
+  });
+
   const menuButton = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".site-nav");
+  if (!menuButton || !navigation) return;
   menuButton.addEventListener("click", () => {
     const isOpen = navigation.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));

@@ -153,3 +153,5 @@ The project is divided into four main disciplines.
 # 🌐 Internship website
 
 The static GitHub Pages site is available in [`index.html`](./index.html). Configure application, feedback, contact, community, and calendar links in [`script.js`](./script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md).
+
+The curriculum hub is data-driven: update [`resources/data.js`](./resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, DevOps, and AI/ML.

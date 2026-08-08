@@ -2,6 +2,17 @@
 
 This project is a plain static website. It needs no Node.js, framework, build command, or database.
 
+The resource catalogue is available through URLs such as:
+
+```text
+resources/index.html?field=frontend
+resources/index.html?field=backend
+resources/index.html?field=ui-ux
+resources/index.html?field=qa
+resources/index.html?field=devops
+resources/index.html?field=ai-ml
+```
+
 ## 1. Configure the site
 
 Before publishing, edit [`script.js`](../script.js) and replace these values:
@@ -20,7 +31,7 @@ const siteConfig = {
 };
 ```
 
-Recommended future links:
+Recommended site links:
 
 - Application form: name, email, track, portfolio, availability, and motivation.
 - Feedback form: week, rating, blockers, and suggestions.
@@ -29,6 +40,10 @@ Recommended future links:
 - LinkedIn/community: announcements and cohort communication.
 - Calendar: mentor or orientation conversations.
 - Resource links: add roadmaps, documentation, practice work, tools, and project guidance for each field.
+
+The resource content lives in [`resources/data.js`](../resources/data.js). Add topics, documentation, videos, search links, and practice tasks there; the shared page at [`resources/index.html`](../resources/index.html) renders the selected field automatically.
+
+Each field should keep the same content shape: 6–8 topics, 8–12 documentation links, 3–5 direct video or playlist links, one YouTube search link, and 3 practice tasks.
 
 Do not put passwords, API keys, private applicant data, or other secrets in this repository. GitHub Pages sites are public.
 
