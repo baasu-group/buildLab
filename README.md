@@ -14,7 +14,7 @@ The goal is simple:
 
 ---
 
-# 🌟 About This Program
+#  About This Program 🌟
 
 This is a **24-week project-based internship program** focused on practical software development.
 
@@ -38,7 +38,7 @@ Each track has its own learning roadmap:
 
 ---
 
-# 🎯 What We Are Building
+# What We Are Building 🎯 
 
 The internship is centered around a **real-world Team Management Platform**.
 
@@ -64,7 +64,7 @@ The exact scope may evolve as the team learns and receives feedback.
 
 ---
 
-# 🧠 The Philosophy
+# The Philosophy
 
 This internship is not about completing tutorials.
 
@@ -123,4 +123,4 @@ The project is divided into four main disciplines.
                                          QA
                                           │
                                           ↓
-                                        Release
+                                         Release
