@@ -62,7 +62,7 @@ Then visit <http://localhost:8000>. Check the navigation, every link, mobile lay
 Create a GitHub repository, then run these commands from this folder:
 
 ```bash
-git add index.html styles.css script.js .nojekyll docs/GITHUB_PAGES.md
+git add .
 git commit -m "Add internship GitHub Pages site"
 git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
@@ -71,14 +71,21 @@ git push -u origin main
 
 If `origin` already exists, use `git remote -v` to check it and skip `git remote add origin`.
 
-## 4. Enable GitHub Pages
+## 4. Enable gated GitHub Pages deployment
 
 1. Open the repository on GitHub.
 2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch **main** and folder **/(root)**.
-5. Select **Save**.
-6. Wait for the Pages deployment to finish, then open the URL shown in the Pages settings.
+3. Under **Build and deployment → Source**, choose **GitHub Actions**.
+4. Push the workflow at [`.github/workflows/pages.yml`](../.github/workflows/pages.yml), or run it from the repository’s **Actions** tab.
+5. Wait for the Pages deployment to finish, then open the URL shown in the Pages settings.
+
+The workflow listens for pushes to `main`, but its deployment job runs only when the GitHub actor is exactly `basan-ta` or `baasu-group`:
+
+```yaml
+if: ${{ github.ref == 'refs/heads/main' && (github.actor == 'basan-ta' || github.actor == 'baasu-group') }}
+```
+
+An intern’s push can still create a workflow run, but the deployment job will be skipped and the public site will not change. GitHub usernames are checked; display names and commit email addresses do not count. Do not use `github.repository_owner` for this gate because it is always `baasu-group` for this repository.
 
 For a project repository, the URL normally looks like:
 
@@ -86,7 +93,7 @@ For a project repository, the URL normally looks like:
 https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/
 ```
 
-Updates to `main` will publish automatically. GitHub notes that a first publication can take several minutes.
+Only an authorized `main` push, or a manual run started by an authorized actor, will publish automatically. GitHub notes that a first publication can take several minutes.
 
 ## 5. Optional custom domain
 
@@ -106,6 +113,8 @@ git push origin main
 
 Check **Settings → Pages → Visit site** and the repository’s **Actions** tab if an update does not appear. Browser caching can make a recent CSS or JavaScript change look delayed.
 
+If an authorized push is skipped, confirm that the person pushed using the GitHub account `basan-ta` or that the repository owner is running the workflow as `baasu-group`. If every `main` push is still publishing, change the Pages source from **Deploy from a branch** to **GitHub Actions**.
+
 ## Useful future additions
 
 - Add a `CNAME` file only when a custom domain is configured from a branch source.
@@ -116,4 +125,4 @@ Check **Settings → Pages → Visit site** and the repository’s **Actions** t
 - Move form handling to a proper form service or backend; GitHub Pages itself does not process submissions.
 - Add an accessibility check and link checker to CI as the site grows.
 
-Official references: [GitHub Pages quickstart](https://docs.github.com/en/pages/quickstart), [publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), and [custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+Official references: [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [job conditions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions?apiVersion=2022-11-28), [publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), and [custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).

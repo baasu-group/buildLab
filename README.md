@@ -4,6 +4,8 @@
 
 Welcome to the official internship repository.
 
+**Led by:** [basan-ta](https://github.com/basan-ta)
+
 This repository is designed to provide a **real-world software development experience** through a structured six-month internship program.
 
 Instead of learning technologies in isolation, interns will work together to design, build, test, and improve a real software product.
@@ -152,6 +154,6 @@ The project is divided into four main disciplines.
 
 # 🌐 Internship website
 
-The static GitHub Pages site is available in [`index.html`](./index.html). Configure application, feedback, contact, community, and calendar links in [`script.js`](./script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md).
+The static GitHub Pages site is available in [`index.html`](./index.html). Configure application, feedback, contact, community, and calendar links in [`script.js`](./script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md). Deployment is intentionally gated so only `basan-ta` or `baasu-group` can publish changes from `main`.
 
 The curriculum hub is data-driven: update [`resources/data.js`](./resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, DevOps, and AI/ML.
