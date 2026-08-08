@@ -5,17 +5,17 @@ This project is a plain static website. It needs no Node.js, framework, build co
 The resource catalogue is available through URLs such as:
 
 ```text
-resources/index.html?field=frontend
-resources/index.html?field=backend
-resources/index.html?field=ui-ux
-resources/index.html?field=qa
-resources/index.html?field=devops
-resources/index.html?field=ai-ml
+buildlab/resources/index.html?field=frontend
+buildlab/resources/index.html?field=backend
+buildlab/resources/index.html?field=ui-ux
+buildlab/resources/index.html?field=qa
+buildlab/resources/index.html?field=devops
+buildlab/resources/index.html?field=ai-ml
 ```
 
 ## 1. Configure the site
 
-Before publishing, edit [`script.js`](../script.js) and replace these values:
+Before publishing, edit [`buildlab/script.js`](../buildlab/script.js) and replace these values:
 
 ```js
 const siteConfig = {
@@ -41,7 +41,7 @@ Recommended site links:
 - Calendar: mentor or orientation conversations.
 - Resource links: add roadmaps, documentation, practice work, tools, and project guidance for each field.
 
-The resource content lives in [`resources/data.js`](../resources/data.js). Add topics, documentation, videos, search links, and practice tasks there; the shared page at [`resources/index.html`](../resources/index.html) renders the selected field automatically.
+The resource content lives in [`buildlab/resources/data.js`](../buildlab/resources/data.js). Add topics, documentation, videos, search links, and practice tasks there; the shared page at [`buildlab/resources/index.html`](../buildlab/resources/index.html) renders the selected field automatically.
 
 Each field should keep the same content shape: 6–8 topics, 8–12 documentation links, 3–5 direct video or playlist links, one YouTube search link, and 3 practice tasks.
 
@@ -49,13 +49,13 @@ Do not put passwords, API keys, private applicant data, or other secrets in this
 
 ## 2. Test locally
 
-Open `index.html` in a browser, or run a tiny local server from the repository root:
+Open `buildlab/index.html` in a browser, or run a tiny local server from the repository root:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit <http://localhost:8000>. Check the navigation, every link, mobile layout, and form destinations.
+Then visit <http://localhost:8000>. The root URL redirects to `buildlab/`. Check the navigation, every link, mobile layout, and form destinations.
 
 ## 3. Push the site to GitHub
 

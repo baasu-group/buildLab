@@ -4,7 +4,7 @@
 
 Welcome to the official internship repository.
 
-**Led by:** [basan-ta](https://github.com/basan-ta)
+**Lead by:** [basan-ta](https://github.com/basan-ta)
 
 This repository is designed to provide a **real-world software development experience** through a structured six-month internship program.
 
@@ -42,10 +42,10 @@ Interns will work in specialized tracks while collaborating as one product team.
 
 Each track has its own learning roadmap:
 
-- [`Frontend_Resources`](./INT-026-08-01/Frontend_Resources)
-- [`Backend_resources`](./INT-026-08-01/Backend_resources)
-- [`UI_UX_resources`](./INT-026-08-01/UI_UX_resources)
-- [`QA_resources`](./INT-026-08-01/QA_esources)
+- [`Frontend_Resources`](./buildlab/INT-026-08-01/Frontend_Resources)
+- [`Backend_resources`](./buildlab/INT-026-08-01/Backend_resources)
+- [`UI_UX_resources`](./buildlab/INT-026-08-01/UI_UX_resources)
+- [`QA_resources`](./buildlab/INT-026-08-01/QA_esources)
 
 ---
 
@@ -84,7 +84,7 @@ The website includes a central resource hub for:
 - DevOps
 - AI/ML
 
-Each field can later contain roadmaps, documentation, practice assignments, tools, project guidance, and recommended references. Resource destinations are managed in [`script.js`](./script.js), so new links can be added without changing the page layout.
+Each field can later contain roadmaps, documentation, practice assignments, tools, project guidance, and recommended references. Resource destinations are managed in [`buildlab/script.js`](./buildlab/script.js), so new links can be added without changing the page layout.
 
 ---
 
@@ -154,6 +154,6 @@ The project is divided into four main disciplines.
 
 # 🌐 Internship website
 
-The static GitHub Pages site is available in [`index.html`](./index.html). Configure application, feedback, contact, community, and calendar links in [`script.js`](./script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md). Deployment is intentionally gated so only `basan-ta` or `baasu-group` can publish changes from `main`.
+The static GitHub Pages site lives in [`buildlab/`](./buildlab/). The root [`index.html`](./index.html) redirects visitors there so the existing Pages URL continues working. Configure application, feedback, contact, community, and calendar links in [`buildlab/script.js`](./buildlab/script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md). Deployment is intentionally gated so only `basan-ta` or `baasu-group` can publish changes from `main`.
 
-The curriculum hub is data-driven: update [`resources/data.js`](./resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, DevOps, and AI/ML.
+The curriculum hub is data-driven: update [`buildlab/resources/data.js`](./buildlab/resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, DevOps, and AI/ML.

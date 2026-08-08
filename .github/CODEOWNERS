@@ -1,0 +1,4 @@
+# Changes inside the BuildLab site require approval from the project lead.
+# Enforce this file with a protected main branch and required code-owner review.
+/buildlab/ @basan-ta
+/.github/ @basan-ta
