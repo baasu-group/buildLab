@@ -4,7 +4,7 @@
 
 Welcome to the official internship repository.
 
-This repository is designed to provide a **real-world software development experience** through a structured 24-week internship program.
+This repository is designed to provide a **real-world software development experience** through a structured six-month internship program.
 
 Instead of learning technologies in isolation, interns will work together to design, build, test, and improve a real software product.
 
@@ -16,7 +16,16 @@ The goal is simple:
 
 #  About This Program 🌟
 
-This is a **24-week project-based internship program** focused on practical software development.
+This is a **six-month project-based internship program** focused on practical software development.
+
+## Program structure
+
+The internship has two connected phases:
+
+1. **Months 1–3 — Learning and practice:** interns build fundamentals, learn the tools for their track, complete guided exercises, practice collaboration, and receive regular reviews.
+2. **Months 4–6 — Intensive real-world project work:** interns work as one product team to design, build, test, review, document, and ship the Team Management Platform.
+
+The program is measured by learning progress, useful contributions, collaboration, quality, and the ability to explain and improve the work—not by tutorial completion alone.
 
 Interns will work in specialized tracks while collaborating as one product team.
 
@@ -31,10 +40,10 @@ Interns will work in specialized tracks while collaborating as one product team.
 
 Each track has its own learning roadmap:
 
-- [`Frontend_Resources`](./Frontend_Resources)
-- [`Backend_resources`](./Backend_resources)
-- [`UI_UX_resources`](./UI_UX_resources)
-- [`QA_resources`](./QA_resources)
+- [`Frontend_Resources`](./INT-026-08-01/Frontend_Resources)
+- [`Backend_resources`](./INT-026-08-01/Backend_resources)
+- [`UI_UX_resources`](./INT-026-08-01/UI_UX_resources)
+- [`QA_resources`](./INT-026-08-01/QA_esources)
 
 ---
 
@@ -124,6 +133,7 @@ The project is divided into four main disciplines.
                                           │
                                         ↓
                                         Release
+```
 
 ---
 
