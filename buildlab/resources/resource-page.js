@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  document.title = `${resource.title} | Engineering Internship`;
+  document.title = `${resource.title} | BuildLab Internship`;
   document.querySelector("[data-resource-icon]").textContent = resource.icon;
   document.querySelector("[data-resource-status]").textContent = resource.status;
   document.querySelector("[data-resource-phase]").textContent = resource.phase;
