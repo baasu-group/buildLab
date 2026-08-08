@@ -79,6 +79,8 @@ If `origin` already exists, use `git remote -v` to check it and skip `git remote
 4. Push the workflow at [`.github/workflows/pages.yml`](../.github/workflows/pages.yml), or run it from the repository’s **Actions** tab.
 5. Wait for the Pages deployment to finish, then open the URL shown in the Pages settings.
 
+The workflow uploads `buildlab/` as the artifact root. This makes `buildlab/index.html` the homepage of the Pages site; the URL does not include `/buildlab/`.
+
 The workflow listens for pushes to `main`, but its deployment job runs only when the GitHub actor is exactly `basan-ta` or `baasu-group`:
 
 ```yaml
@@ -113,7 +115,7 @@ git push origin main
 
 Check **Settings → Pages → Visit site** and the repository’s **Actions** tab if an update does not appear. Browser caching can make a recent CSS or JavaScript change look delayed.
 
-If an authorized push is skipped, confirm that the person pushed using the GitHub account `basan-ta` or that the repository owner is running the workflow as `baasu-group`. If every `main` push is still publishing, change the Pages source from **Deploy from a branch** to **GitHub Actions**.
+If an authorized push is skipped, confirm that the person pushed using the GitHub account `basan-ta` or that the repository owner is running the workflow as `baasu-group`. Do not select `/docs` or try to select `/buildlab` in branch mode; GitHub branch publishing supports only the repository root or `/docs`. Use **GitHub Actions** so the workflow can publish `buildlab/` as the site root. If every `main` push is still publishing, change the Pages source from **Deploy from a branch** to **GitHub Actions**.
 
 ## Useful future additions
 

@@ -35,7 +35,7 @@ jobs:
       - name: Upload static website
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: ./buildlab
 
       - name: Deploy to GitHub Pages
         id: deployment
