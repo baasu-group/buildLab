@@ -54,3 +54,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const applyDialog = document.querySelector("#apply-dialog");
+
+document.querySelectorAll('[data-link="applicationForm"]').forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    applyDialog.showModal();
+  });
+});
+
+document.querySelector("#apply-close").addEventListener("click", () => {
+  applyDialog.close();
+});
+
+applyDialog.addEventListener("click", (event) => {
+  if (event.target === applyDialog) applyDialog.close();
+});
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTPMIPOcm-7xxE27Ws2D52DvT-ZbihR1CYQ6qCvygpR1TSSc-MM70Bo8ko1OkLNf7d/exec";
+
+const applyForm = document.querySelector("#apply-form");
+const formStatus = document.querySelector("#form-status");
+const submitButton = applyForm.querySelector("button[type=submit]");
+
+applyForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  if (!applyForm.checkValidity()) {
+    formStatus.textContent = "Please fill in all required fields.";
+    return;
+  }
+
+  const data = Object.fromEntries(new FormData(applyForm));
+
+  submitButton.disabled = true;
+  formStatus.textContent = "Sending...";
+
+  try {
+    const response = await fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+    if (!result.ok) throw new Error(result.error || "Failed");
+
+    applyForm.reset();
+    formStatus.textContent = "Thank you! Your application was sent.";
+  } catch (error) {
+    console.error(error);
+    formStatus.textContent = "Sorry, something went wrong. Please try again.";
+  } finally {
+    submitButton.disabled = false;
+  }
+});

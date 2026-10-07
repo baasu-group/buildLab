@@ -109,3 +109,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTPMIPOcm-7xxE27Ws2D52DvT-ZbihR1CYQ6qCvygpR1TSSc-MM70Bo8ko1OkLNf7d/exec";
+
+  const form = document.querySelector("#apply-form");
+  if (!form) return;
+
+  const status = document.querySelector("#form-status");
+  const button = form.querySelector("button[type=submit]");
+  const say = (text, type) => { status.textContent = text; status.className = "form-status " + (type || ""); };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (SCRIPT_URL.startsWith("PASTE_")) return say("Add the Apps Script URL in script.js first.", "err");
+    if (!form.checkValidity()) return say("Please fill in all required fields correctly.", "err");
+
+    const data = Object.fromEntries(new FormData(form));
+    button.disabled = true;
+    say("Sending your application...");
+    try {
+      // text/plain avoids a CORS preflight, which Apps Script does not support
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (!result.ok) throw new Error(result.error || "Failed");
+      form.reset();
+      say("Thank you! Your application was sent.", "ok");
+    } catch (err) {
+      console.error(err);
+      say("Sorry, something went wrong. Please try again.", "err");
+    } finally {
+      button.disabled = false;
+    }
+  });
+});
