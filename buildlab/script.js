@@ -72,7 +72,7 @@ applyDialog.addEventListener("click", (event) => {
   if (event.target === applyDialog) applyDialog.close();
 });
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTPMIPOcm-7xxE27Ws2D52DvT-ZbihR1CYQ6qCvygpR1TSSc-MM70Bo8ko1OkLNf7d/exec";
+const SCRIPT_URL = "http://localhost:8001/api/apply-public/";
 
 const applyForm = document.querySelector("#apply-form");
 const formStatus = document.querySelector("#form-status");
@@ -104,7 +104,8 @@ applyForm.addEventListener("submit", async (event) => {
     formStatus.textContent = "Thank you! Your application was sent.";
   } catch (error) {
     console.error(error);
-    formStatus.textContent = "Sorry, something went wrong. Please try again.";
+    formStatus.textContent = "Failed: " + error.message;
+    // formStatus.textContent = "Sorry, something went wrong. Please try again.";
   } finally {
     submitButton.disabled = false;
   }

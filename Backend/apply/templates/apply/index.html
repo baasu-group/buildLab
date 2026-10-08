@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application form (Django SMTP test)</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f4f6f8; margin: 0; padding: 40px 16px; color: #1c2733; }
+    form { max-width: 520px; margin: 0 auto; background: #fff; padding: 28px; border-radius: 10px; border: 1px solid #d9e0e6; display: grid; gap: 14px; }
+    h1 { margin: 0; font-size: 1.4rem; }
+    label { display: grid; gap: 5px; font-size: .9rem; font-weight: 600; }
+    input, select, textarea { padding: 10px; font: inherit; border: 1px solid #c3ccd5; border-radius: 6px; }
+    button { padding: 12px; font: inherit; font-weight: 600; color: #fff; background: #1f5fbf; border: 0; border-radius: 6px; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: wait; }
+    .hp { position: absolute; left: -9999px; }
+    #status { margin: 0; min-height: 1.3em; font-weight: 600; }
+    .ok { color: #1a7f45; } .err { color: #c0392b; }
+  </style>
+</head>
+<body>
+  <form id="form">
+    {% csrf_token %}
+    <h1>Application form</h1>
+    <label>Full name <input name="name" required maxlength="100" /></label>
+    <label>Email <input name="email" type="email" required maxlength="120" /></label>
+    <label>Phone <input name="phone" type="tel" maxlength="30" /></label>
+    <label>Track
+      <select name="track" required>
+        <option value="">Choose a track</option>
+        {% for t in tracks %}<option>{{ t }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Why do you want to join? <textarea name="message" rows="5" required maxlength="2000"></textarea></label>
+    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <button type="submit">Send application</button>
+    <p id="status" role="status"></p>
+  </form>
+
+  <script>
+    const form = document.getElementById("form");
+    const status = document.getElementById("status");
+    const btn = form.querySelector("button");
+    // Django puts a secret token in the form. We send it back so Django knows the request is ours.
+    const csrf = form.querySelector("[name=csrfmiddlewaretoken]").value;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      status.className = ""; status.textContent = "Sending...";
+      const data = Object.fromEntries(new FormData(form));
+      delete data.csrfmiddlewaretoken;
+      try {
+        const res = await fetch("/api/apply/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-CSRFToken": csrf },
+          body: JSON.stringify(data),
+        });
+        const result = await res.json();
+        if (!result.ok) throw new Error(result.error);
+        form.reset();
+        status.className = "ok"; status.textContent = "Sent! Check your inbox (or the terminal in console mode).";
+      } catch (err) {
+        status.className = "err"; status.textContent = err.message || "Something went wrong.";
+      } finally { btn.disabled = false; }
+    });
+  </script>
+</body>
+</html>

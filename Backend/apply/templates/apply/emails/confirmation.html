@@ -1,0 +1,7 @@
+{% extends "apply/emails/base.html" %}
+{% block content %}
+<h1 style="margin:0 0 12px;color:#102a43;font-size:24px;line-height:1.25;">Thanks for applying, {{ app.name }}!</h1>
+<p style="margin:0 0 16px;color:#334e68;font-size:15px;line-height:1.65;">We have received your application for the BuildLab Internship and will get back to you by email soon.</p>
+<span style="display:inline-block;background:#f8c94a;color:#102a43;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;">{{ app.track }} track</span>
+<p style="margin:22px 0 0;color:#627d98;font-size:13px;line-height:1.6;">You can reply to this email if you want to add anything to your application.</p>
+{% endblock %}
