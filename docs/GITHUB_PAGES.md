@@ -121,8 +121,9 @@ If an authorized push is skipped, confirm that the person pushed using the GitHu
 
 - Add a `CNAME` file only when a custom domain is configured from a branch source.
 - Add `assets/` for logos and optimized images.
-- Add `resources/frontend`, `resources/backend`, `resources/ui-ux`, `resources/qa`, `resources/devops`, and `resources/ai-ml` as the learning library grows.
-- Add an `about.html` or `faq.html` only when the homepage becomes too long.
+- Add `resources/frontend`, `resources/backend`, `resources/ui-ux`, `resources/qa`, `resources/devops`, and `resources
+
+ztml` only when the homepage becomes too long.
 - Add a privacy notice before collecting applicant information.
 - Move form handling to a proper form service or backend; GitHub Pages itself does not process submissions.
 - Add an accessibility check and link checker to CI as the site grows.
