@@ -6,13 +6,76 @@ document.addEventListener("DOMContentLoaded", () => {
   const emptyState = document.querySelector("[data-resource-empty]");
 
   const escapeText = (value) => String(value ?? "");
+  const safeUrl = (url) => {
+    try {
+      const parsed = new URL(url, window.location.href);
+      return /^https?:$/.test(parsed.protocol) ? parsed.href : "#";
+    } catch (error) {
+      return "#";
+    }
+  };
   const externalLink = (url) => {
     const link = document.createElement("a");
-    link.href = url;
+    link.href = safeUrl(url);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     return link;
   };
+  const hostName = (url) => {
+    try { return new URL(url).hostname.replace(/^www\./, ""); } catch (error) { return ""; }
+  };
+
+  /* Work out what kind of YouTube link this is: a single video, a playlist, or a search page. */
+  const parseYouTube = (url) => {
+    try {
+      const parsed = new URL(url);
+      const host = parsed.hostname.replace(/^www\./, "");
+      if (host === "youtu.be") return { kind: "video", id: parsed.pathname.slice(1) };
+      if (!/(^|\.)youtube\.com$/.test(host)) return { kind: "link" };
+      if (parsed.pathname === "/watch" && parsed.searchParams.get("v")) return { kind: "video", id: parsed.searchParams.get("v") };
+      if (parsed.pathname === "/playlist" && parsed.searchParams.get("list")) return { kind: "playlist", id: parsed.searchParams.get("list") };
+      if (parsed.pathname === "/results") return { kind: "search" };
+    } catch (error) { /* fall through */ }
+    return { kind: "link" };
+  };
+
+  /* ---------- In-page YouTube player ---------- */
+  let lastTrigger = null;
+  const modal = document.createElement("div");
+  modal.className = "video-modal";
+  modal.hidden = true;
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-label", "Video player");
+  modal.innerHTML = `<div class="video-modal-backdrop" data-video-close></div><div class="video-modal-box"><div class="video-modal-bar"><strong data-video-title></strong><button type="button" class="video-modal-close" data-video-close aria-label="Close video">✕</button></div><div class="video-frame" data-video-frame></div><div class="video-modal-foot"><span>If the video does not play here, open it directly on YouTube.</span><a data-video-yt target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></div></div>`;
+  document.body.appendChild(modal);
+
+  const closeVideo = () => {
+    modal.hidden = true;
+    modal.querySelector("[data-video-frame]").replaceChildren(); // stops playback
+    document.body.classList.remove("has-video-modal");
+    if (lastTrigger) lastTrigger.focus();
+  };
+  const openVideo = (item, info, trigger) => {
+    lastTrigger = trigger;
+    const embed = info.kind === "playlist"
+      ? `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(info.id)}&autoplay=1&rel=0`
+      : `https://www.youtube-nocookie.com/embed/${encodeURIComponent(info.id)}?autoplay=1&rel=0`;
+    const iframe = document.createElement("iframe");
+    iframe.src = embed;
+    iframe.title = item.title;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    modal.querySelector("[data-video-frame]").replaceChildren(iframe);
+    modal.querySelector("[data-video-title]").textContent = item.title;
+    modal.querySelector("[data-video-yt]").href = safeUrl(item.url);
+    modal.hidden = false;
+    document.body.classList.add("has-video-modal");
+    modal.querySelector(".video-modal-close").focus();
+  };
+  modal.addEventListener("click", (event) => { if (event.target.closest("[data-video-close]")) closeVideo(); });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !modal.hidden) closeVideo(); });
 
   if (!resource) {
     app.hidden = true;
@@ -55,35 +118,92 @@ document.addEventListener("DOMContentLoaded", () => {
   const docs = document.querySelector("[data-resource-docs]");
   resource.docs.forEach((item) => {
     const article = document.createElement("article");
-    article.className = "resource-link-card";
+    article.className = "resource-link-card doc-card";
     const link = externalLink(item.url);
     link.className = "resource-link-title";
-    link.textContent = `${item.title} ↗`;
+    link.textContent = item.title;
+    link.setAttribute("aria-label", `${item.title} – opens ${hostName(item.url)} in a new tab`);
     const source = document.createElement("span");
     source.className = "resource-link-source";
     source.textContent = `${item.source} · ${item.level}`;
     const reason = document.createElement("p");
     reason.textContent = item.reason;
-    article.append(link, source, reason);
+    const open = externalLink(item.url);
+    open.className = "resource-open-doc";
+    open.setAttribute("tabindex", "-1");
+    open.setAttribute("aria-hidden", "true");
+    open.textContent = `Open documentation · ${hostName(item.url)} ↗`;
+    article.append(link, source, reason, open);
+    // Make the entire card clickable (the title link stays the keyboard/screen-reader target).
+    article.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      window.open(safeUrl(item.url), "_blank", "noopener,noreferrer");
+    });
     docs.appendChild(article);
   });
 
   const videos = document.querySelector("[data-resource-videos]");
   resource.videos.forEach((item) => {
+    const info = parseYouTube(item.url);
+    const playable = info.kind === "video" || info.kind === "playlist";
     const article = document.createElement("article");
     article.className = "resource-link-card video-card";
-    const link = externalLink(item.url);
-    link.className = "resource-link-title";
-    link.textContent = `${item.title} ↗`;
+
+    if (playable) {
+      const thumb = document.createElement("button");
+      thumb.type = "button";
+      thumb.className = "video-thumb";
+      thumb.setAttribute("aria-label", `Play video: ${item.title}`);
+      if (info.kind === "video") {
+        const img = document.createElement("img");
+        img.src = `https://i.ytimg.com/vi/${encodeURIComponent(info.id)}/hqdefault.jpg`;
+        img.alt = "";
+        img.loading = "lazy";
+        img.addEventListener("error", () => img.remove());
+        thumb.appendChild(img);
+      }
+      const play = document.createElement("span");
+      play.className = "video-play";
+      play.textContent = info.kind === "playlist" ? "▶ Playlist" : "▶";
+      thumb.appendChild(play);
+      thumb.addEventListener("click", () => openVideo(item, info, thumb));
+      article.appendChild(thumb);
+    }
+
+    const title = playable ? document.createElement("button") : externalLink(item.url);
+    if (playable) {
+      title.type = "button";
+      title.addEventListener("click", () => openVideo(item, info, title));
+    }
+    title.classList.add("resource-link-title");
+    if (playable) title.classList.add("video-title-button");
+    title.textContent = playable ? item.title : `${item.title} ↗`;
+
     const source = document.createElement("span");
     source.className = "resource-link-source";
     source.textContent = `${item.channel} · ${item.level}`;
     const outcome = document.createElement("p");
     outcome.textContent = item.outcome;
-    article.append(link, source, outcome);
+
+    const actions = document.createElement("div");
+    actions.className = "video-actions";
+    if (playable) {
+      const watch = document.createElement("button");
+      watch.type = "button";
+      watch.className = "video-watch";
+      watch.textContent = "▶ Watch here";
+      watch.addEventListener("click", () => openVideo(item, info, watch));
+      actions.appendChild(watch);
+    }
+    const yt = externalLink(item.url);
+    yt.className = "video-yt-link";
+    yt.textContent = info.kind === "search" ? "Browse results on YouTube ↗" : "Open on YouTube ↗";
+    actions.appendChild(yt);
+
+    article.append(title, source, outcome, actions);
     videos.appendChild(article);
   });
-  document.querySelector("[data-resource-youtube-search]").href = resource.youtubeSearchUrl;
+  document.querySelector("[data-resource-youtube-search]").href = safeUrl(resource.youtubeSearchUrl);
 
   const practice = document.querySelector("[data-resource-practice]");
   resource.practiceTasks.forEach((task, index) => {

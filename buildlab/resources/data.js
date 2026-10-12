@@ -28,7 +28,7 @@ window.resourceCatalog = {
       { title: "MDN CSS", url: "https://developer.mozilla.org/en-US/docs/Web/CSS", source: "MDN Web Docs", level: "Foundation", reason: "Learn layout, responsive design, selectors, and browser behavior." },
       { title: "MDN JavaScript Guide", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide", source: "MDN Web Docs", level: "Foundation", reason: "Build the language fundamentals needed for React work." },
       { title: "React Learn", url: "https://react.dev/learn", source: "Official React documentation", level: "Core", reason: "Learn modern React with components, state, events, and hooks." },
-      { title: "React API Reference", url: "https://react.dev/reference/react", source: "Official React documentation", level: "Reference", reason: "Use the authoritative reference while building reusable UI." },
+      { title: "React API Reference", url: "https://react.dev/reference/react/apis", source: "Official React documentation", level: "Reference", reason: "Use the authoritative reference while building reusable UI." },
       { title: "Next.js Learn", url: "https://nextjs.org/learn", source: "Official Next.js documentation", level: "Core", reason: "Build a full-stack dashboard while learning routing, data, auth, and accessibility." },
       { title: "Next.js App Router", url: "https://nextjs.org/docs/app", source: "Official Next.js documentation", level: "Reference", reason: "Use the current App Router patterns during project implementation." },
       { title: "Tailwind CSS documentation", url: "https://tailwindcss.com/docs", source: "Official Tailwind CSS documentation", level: "Core", reason: "Create consistent responsive interfaces with utility-first CSS." },
@@ -75,13 +75,13 @@ window.resourceCatalog = {
       { title: "Django authentication", url: "https://docs.djangoproject.com/en/stable/topics/auth/", source: "Official Django documentation", level: "Security", reason: "Understand users, groups, permissions, and secure identity flows." },
       { title: "Django testing", url: "https://docs.djangoproject.com/en/stable/topics/testing/", source: "Official Django documentation", level: "Testing", reason: "Turn business rules into repeatable automated checks." },
       { title: "DRF Quickstart", url: "https://www.django-rest-framework.org/tutorial/quickstart/", source: "Official Django REST Framework documentation", level: "Core", reason: "Build serializers, viewsets, routers, permissions, and pagination." },
-      { title: "DRF API guide", url: "https://www.django-rest-framework.org/api-guide/", source: "Official Django REST Framework documentation", level: "Reference", reason: "Use the authoritative API reference while implementing features." },
+      { title: "DRF API guide", url: "https://www.django-rest-framework.org/api-guide/requests/", source: "Official Django REST Framework documentation", level: "Reference", reason: "Use the authoritative API reference while implementing features." },
       { title: "PostgreSQL tutorial", url: "https://www.postgresql.org/docs/current/tutorial.html", source: "Official PostgreSQL documentation", level: "Database", reason: "Practice relational design, SQL, joins, and transactions." },
       { title: "Django deployment checklist", url: "https://docs.djangoproject.com/en/stable/howto/deployment/checklist/", source: "Official Django documentation", level: "Production", reason: "Review the security and configuration work required before release." }
     ],
     videos: [
       { title: "Python Django Framework Full Course", url: "https://www.youtube.com/watch?v=cI3FOYIMSYE", channel: "freeCodeCamp.org", outcome: "Learn Django fundamentals by following a complete application build.", level: "Foundation" },
-      { title: "Django REST Framework Full Course", url: "https://www.youtube.com/watch?v=c708Nf0cB9I", channel: "freeCodeCamp.org", outcome: "Practice building REST APIs, serializers, views, and authentication.", level: "Core project" },
+      { title: "Django REST Framework Full Course", url: "https://www.youtube.com/watch?v=tujhGdn1EMI", channel: "freeCodeCamp.org", outcome: "Practice building REST APIs, serializers, views, and authentication.", level: "Core project" },
       { title: "PostgreSQL Tutorial Full Course", url: "https://www.youtube.com/watch?v=qw--VYLpxG4", channel: "freeCodeCamp.org", outcome: "Strengthen SQL, relational modeling, joins, and database fundamentals.", level: "Database" },
       { title: "Django REST API project search", url: "https://www.youtube.com/results?search_query=Django+REST+Framework+production+API+project", channel: "YouTube search", outcome: "Find current production-oriented Django REST project walkthroughs.", level: "Explore" }
     ],
@@ -120,7 +120,7 @@ window.resourceCatalog = {
       { title: "WCAG 2.2 quick reference", url: "https://www.w3.org/WAI/WCAG22/quickref/", source: "W3C Web Accessibility Initiative", level: "Reference", reason: "Use concrete accessibility success criteria during design review." },
       { title: "Ten usability heuristics", url: "https://www.nngroup.com/articles/ten-usability-heuristics/", source: "Nielsen Norman Group", level: "Usability", reason: "Use a practical heuristic checklist to find interaction problems." },
       { title: "Material 3 foundations", url: "https://m3.material.io/foundations", source: "Material Design", level: "Systems", reason: "Study a mature public design system and its foundations." },
-      { title: "Designing for developers", url: "https://www.nngroup.com/articles/design-developer-handoff/", source: "Nielsen Norman Group", level: "Handoff", reason: "Make design decisions clear and actionable for implementation." },
+      { title: "Designing for developers", url: "https://www.nngroup.com/topic/ux-design-process/?page=2", source: "Nielsen Norman Group", level: "Handoff", reason: "Make design decisions clear and actionable for implementation." },
       { title: "Web forms accessibility", url: "https://www.w3.org/WAI/tutorials/forms/", source: "W3C Web Accessibility Initiative", level: "Practice", reason: "Design usable, correctly labeled forms for the product." }
     ],
     videos: [
@@ -163,7 +163,7 @@ window.resourceCatalog = {
       { title: "Postman test scripts", url: "https://learning.postman.com/docs/tests-and-scripts/write-scripts/test-scripts/", source: "Postman Learning Center", level: "API", reason: "Practice approachable API assertions and workflow checks." },
       { title: "OWASP Web Security Testing Guide", url: "https://owasp.org/www-project-web-security-testing-guide/", source: "OWASP", level: "Security", reason: "Learn how security risks are tested in real web applications." },
       { title: "Selenium documentation", url: "https://www.selenium.dev/documentation/", source: "Official Selenium documentation", level: "Reference", reason: "Understand a widely used browser automation ecosystem." },
-      { title: "GitHub Actions CI", url: "https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing", source: "GitHub Docs", level: "CI", reason: "Run quality checks automatically on repository changes." },
+      { title: "GitHub Actions CI", url: "https://docs.github.com/en/actions/get-started/continuous-integration", source: "GitHub Docs", level: "CI", reason: "Run quality checks automatically on repository changes." },
       { title: "Django testing", url: "https://docs.djangoproject.com/en/stable/topics/testing/", source: "Official Django documentation", level: "Backend", reason: "Understand how backend tests protect business rules." },
       { title: "HTTP response status codes", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status", source: "MDN Web Docs", level: "API", reason: "Interpret API behavior and report failures precisely." },
       { title: "Testing Library guiding principles", url: "https://testing-library.com/docs/guiding-principles/", source: "Testing Library", level: "Frontend", reason: "Write tests around user behavior instead of implementation details." }
@@ -173,7 +173,7 @@ window.resourceCatalog = {
       { title: "Postman Beginner’s Course – API Testing", url: "https://www.youtube.com/watch?v=VywxIQ2ZXw4", channel: "freeCodeCamp.org", outcome: "Learn API requests, assertions, collections, and test automation basics.", level: "Foundation" },
       { title: "Postman API Test Automation for Beginners", url: "https://www.youtube.com/watch?v=zp5Jh2FIpF0", channel: "freeCodeCamp.org", outcome: "Practice turning API checks into repeatable automated tests.", level: "API automation" },
       { title: "Postman API testing tutorial", url: "https://www.youtube.com/results?search_query=Postman+API+testing+test+scripts+beginner", channel: "YouTube search", outcome: "Find current API testing workflows and assertion examples.", level: "API" },
-      { title: "Software testing real-world project", url: "https://www.youtube.com/results?search_query=software+testing+real+world+project+bug+report+test+case", channel: "YouTube search", outcome: "Compare practical test planning, bug reporting, and regression workflows.", level: "Practice" }
+      { title: "Software Testing Tutorials (playlist)", url: "https://www.youtube.com/playlist?list=PL8VbCbavWfeGJq4KMUIXRhIquJsEpfuUx", channel: "Guru99", outcome: "Learn test cases, defect lifecycle, test plans, and testing types with real-life examples.", level: "Foundation" }
     ],
     youtubeSearchUrl: "https://www.youtube.com/results?search_query=QA+testing+Playwright+API+testing+real+world+project",
     practiceTasks: [
@@ -207,7 +207,7 @@ window.resourceCatalog = {
       { title: "Docker getting started", url: "https://docs.docker.com/get-started/", source: "Official Docker documentation", level: "Core", reason: "Learn containers through practical application workflows." },
       { title: "Containerize a Django application", url: "https://docs.docker.com/guides/django/", source: "Docker Guides", level: "Project", reason: "Connect Docker, Django, PostgreSQL, and Compose in a realistic stack." },
       { title: "GitHub Actions concepts", url: "https://docs.github.com/en/actions/get-started/understand-github-actions", source: "GitHub Docs", level: "CI/CD", reason: "Understand workflows, jobs, runners, and reusable actions." },
-      { title: "GitHub Actions CI", url: "https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing", source: "GitHub Docs", level: "CI", reason: "Build and test changes automatically on pull requests." },
+      { title: "GitHub Actions CI", url: "https://docs.github.com/en/actions/get-started/continuous-integration", source: "GitHub Docs", level: "CI", reason: "Build and test changes automatically on pull requests." },
       { title: "The Twelve-Factor App", url: "https://12factor.net/", source: "12factor.net", level: "Production", reason: "Learn portable principles for configuration and deployment." },
       { title: "Kubernetes concepts", url: "https://kubernetes.io/docs/concepts/", source: "Official Kubernetes documentation", level: "Operations", reason: "Understand the platform concepts behind container orchestration." },
       { title: "OWASP secrets management", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", source: "OWASP", level: "Security", reason: "Avoid leaking credentials through code and automation." },
@@ -256,7 +256,7 @@ window.resourceCatalog = {
       { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework", source: "NIST", level: "Responsible AI", reason: "Use a credible framework for identifying and managing AI risks." },
       { title: "ML model evaluation", url: "https://scikit-learn.org/stable/modules/model_evaluation.html", source: "Official scikit-learn documentation", level: "Evaluation", reason: "Choose and interpret metrics rather than relying on a single score." },
       { title: "Google ML fairness", url: "https://developers.google.com/machine-learning/crash-course/fairness", source: "Google for Developers", level: "Responsible AI", reason: "Understand how data and model decisions can create unfair outcomes." },
-      { title: "OWASP Machine Learning Security Top 10", url: "https://owasp.org/www-project-machine-learning-security-top-10/", source: "OWASP", level: "Security", reason: "Recognize common security risks in ML systems." }
+      { title: "OWASP Machine Learning Security Top 10", url: "https://owasp.org/projects/machine-learning-security-top-ten?tab=related", source: "OWASP", level: "Security", reason: "Recognize common security risks in ML systems." }
     ],
     videos: [
       { title: "But what is a neural network?", url: "https://www.youtube.com/watch?v=aircAruvnKk", channel: "3Blue1Brown", outcome: "Build an intuitive understanding of neural networks and gradient-based learning.", level: "Foundation" },
