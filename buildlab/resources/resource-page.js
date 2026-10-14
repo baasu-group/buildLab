@@ -68,6 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
     docs.appendChild(article);
   });
 
+  const youtubeId = (url) => {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes("youtube.com")) return u.searchParams.get("v");
+    if (u.hostname === "youtu.be") return u.pathname.slice(1);
+  } catch (e) {}
+  return null;
+  };
+
   const videos = document.querySelector("[data-resource-videos]");
   resource.videos.forEach((item) => {
     const article = document.createElement("article");
@@ -80,7 +89,23 @@ document.addEventListener("DOMContentLoaded", () => {
     source.textContent = `${item.channel} · ${item.level}`;
     const outcome = document.createElement("p");
     outcome.textContent = item.outcome;
-    article.append(link, source, outcome);
+    const id = youtubeId(item.url);
+    const banner = document.createElement("div");
+    banner.className = "video-banner" + (id ? "" : " video-banner-empty");
+    banner.dataset.label = "Search on YouTube";
+    if (id) {
+      const img = document.createElement("img");
+      img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+      img.alt = "";
+      img.loading = "lazy";
+      img.onerror = () => img.remove();   // falls back to the navy banner
+      banner.appendChild(img);
+    }
+    const play = document.createElement("span");
+    play.className = "video-play";
+    play.textContent = "▶";
+    banner.appendChild(play);
+    article.append(banner, link, source, outcome);
     videos.appendChild(article);
   });
   document.querySelector("[data-resource-youtube-search]").href = resource.youtubeSearchUrl;
