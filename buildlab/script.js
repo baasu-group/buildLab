@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const resource = window.resourceCatalog?.[card.dataset.resourceCard];
     if (!resource) return;
     card.querySelector(".resource-status").textContent = resource.status;
-    card.querySelector(".resource-icon").textContent = resource.icon;
+    const iconEl = card.querySelector(".resource-icon");
+    if (iconEl && !iconEl.querySelector("svg")) iconEl.textContent = resource.icon;
     card.querySelector("[data-resource-card-topics]").textContent = resource.topics.length;
     card.querySelector("[data-resource-card-docs]").textContent = resource.docs.length;
     card.querySelector("[data-resource-card-videos]").textContent = resource.videos.length;
@@ -60,17 +61,23 @@ const applyDialog = document.querySelector("#apply-dialog");
 document.querySelectorAll('[data-link="applicationForm"]').forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
+    document.querySelector("#form-status").textContent = "";
     applyDialog.showModal();
   });
 });
 
-document.querySelector("#apply-close").addEventListener("click", () => {
-  applyDialog.close();
+document.addEventListener("click", (event) => {
+  const popup = document.querySelector("#apply-dialog");
+
+  if (event.target.closest("[data-close-dialog]")) {
+    event.preventDefault();
+    popup.close();
+    return;
+  }
+
+  if (event.target === popup) popup.close();  
 });
 
-applyDialog.addEventListener("click", (event) => {
-  if (event.target === applyDialog) applyDialog.close();
-});
 
 const SCRIPT_URL = "http://localhost:8001/api/apply-public/";
 
@@ -102,11 +109,14 @@ applyForm.addEventListener("submit", async (event) => {
 
     applyForm.reset();
     formStatus.textContent = "Thank you! Your application was sent.";
+    applyForm.hidden = true;
+    document.querySelector("#apply-success").hidden = false;
   } catch (error) {
     console.error(error);
-    formStatus.textContent = "Failed: " + error.message;
-    // formStatus.textContent = "Sorry, something went wrong. Please try again.";
+    // formStatus.textContent = "Failed: " + error.message;
+    formStatus.textContent = "Sorry, something went wrong. Please try again.";
   } finally {
     submitButton.disabled = false;
   }
 });
+

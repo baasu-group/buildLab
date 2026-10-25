@@ -512,8 +512,9 @@ h3 {
   height: 40px;
   margin-bottom: 38px;
   place-items: center;
-  color: var(--navy);
-  background: var(--yellow);
+  color: var(--yellow);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 11px;
   font-size: 1.2rem;
   font-weight: 900;
@@ -861,7 +862,9 @@ details p {
   height: 42px;
   place-items: center;
   color: var(--navy);
-  background: var(--yellow);
+  background: #eaf4ff;
+  border: 1px solid #b8d9fa;
+  box-shadow: none;
   border-radius: 11px;
   font-size: 1rem;
   font-weight: 900;
@@ -1569,14 +1572,33 @@ details p {
   border-radius: 10px;
 }
 
+.hp-field {
+  position: absolute;
+  left: -9999px;
+}
+
+.privacy-note {
+  margin: 0;
+  font-size: 0.78rem;
+  text-align: center;
+  color: var(--text-soft);
+}
+
 @media (max-width: 680px) {
   .brand-text small {
     display: none;
   }
 }
 
-.resource-card, .track-card, .resource-link-card { position: relative; }
-.resource-card, .track-card { cursor: pointer; }
+.resource-card,
+.track-card,
+.resource-link-card {
+  position: relative;
+}
+.resource-card,
+.track-card {
+  cursor: pointer;
+}
 
 .resource-open::after,
 .track-card > a::after,
@@ -1587,7 +1609,9 @@ details p {
 }
 
 /* For Banner of YT resources*/
-.video-card { overflow: hidden; }
+.video-card {
+  overflow: hidden;
+}
 
 .video-banner {
   position: relative;
@@ -1600,7 +1624,7 @@ details p {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;          
+  object-fit: cover;
 }
 .video-play {
   position: absolute;
@@ -1615,10 +1639,12 @@ details p {
   color: var(--navy);
   background: var(--yellow);
   border-radius: 50%;
-  box-shadow: 0 6px 18px rgba(8, 27, 44, .35);
-  transition: transform .2s ease;
+  box-shadow: 0 6px 18px rgba(8, 27, 44, 0.35);
+  transition: transform 0.2s ease;
 }
-.video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.08); }
+.video-card:hover .video-play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
 
 .video-banner-empty::after {
   content: attr(data-label);
@@ -1627,9 +1653,26 @@ details p {
   bottom: 10px;
   left: 14px;
   color: #d5e8f6;
-  font-size: .72rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   text-align: center;
   text-transform: uppercase;
+}
+
+#apply-form[hidden] {
+  display: none;
+}
+
+#apply-success {
+  padding: 56px 34px;
+  text-align: center;
+}
+#apply-success h3 {
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+}
+#apply-success p {
+  margin-bottom: 24px;
+  color: var(--muted);
 }
