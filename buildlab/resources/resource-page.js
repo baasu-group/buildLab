@@ -107,7 +107,7 @@ document.querySelector("[data-resource-icon]").innerHTML = icons[resource.slug] 
       img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
       img.alt = "";
       img.loading = "lazy";
-      img.onerror = () => img.remove();   // falls back to the navy banner
+      img.onerror = () => img.remove();   
       banner.appendChild(img);
     }
     const play = document.createElement("span");
@@ -163,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
     button.disabled = true;
     say("Sending your application...");
     try {
-      // text/plain avoids a CORS preflight, which Apps Script does not support
       const res = await fetch(SCRIPT_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },

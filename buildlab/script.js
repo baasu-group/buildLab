@@ -56,67 +56,75 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* ---------- Application Form ---------- */
+const SCRIPT_URL = "http://localhost:8001/api/apply-public/"; // change to the live address before publishing
+
 const applyDialog = document.querySelector("#apply-dialog");
-
-document.querySelectorAll('[data-link="applicationForm"]').forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    document.querySelector("#form-status").textContent = "";
-    applyDialog.showModal();
-  });
-});
-
-document.addEventListener("click", (event) => {
-  const popup = document.querySelector("#apply-dialog");
-
-  if (event.target.closest("[data-close-dialog]")) {
-    event.preventDefault();
-    popup.close();
-    return;
-  }
-
-  if (event.target === popup) popup.close();  
-});
-
-
-const SCRIPT_URL = "http://localhost:8001/api/apply-public/";
-
 const applyForm = document.querySelector("#apply-form");
-const formStatus = document.querySelector("#form-status");
-const submitButton = applyForm.querySelector("button[type=submit]");
 
-applyForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
+if (applyDialog && applyForm) {
+  const formStatus = document.querySelector("#form-status");
+  const applySuccess = document.querySelector("#apply-success");
+  const submitButton = applyForm.querySelector("button[type=submit]");
 
-  if (!applyForm.checkValidity()) {
-    formStatus.textContent = "Please fill in all required fields.";
-    return;
-  }
-
-  const data = Object.fromEntries(new FormData(applyForm));
-
-  submitButton.disabled = true;
-  formStatus.textContent = "Sending...";
-
-  try {
-    const response = await fetch(SCRIPT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(data),
+  document.querySelectorAll('[data-link="applicationForm"]').forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      applyForm.hidden = false;     
+      applySuccess.hidden = true;    
+      formStatus.textContent = "";
+      applyDialog.showModal();
     });
-    const result = await response.json();
-    if (!result.ok) throw new Error(result.error || "Failed");
+  });
 
-    applyForm.reset();
-    formStatus.textContent = "Thank you! Your application was sent.";
-    applyForm.hidden = true;
-    document.querySelector("#apply-success").hidden = false;
-  } catch (error) {
-    console.error(error);
-    // formStatus.textContent = "Failed: " + error.message;
-    formStatus.textContent = "Sorry, something went wrong. Please try again.";
-  } finally {
-    submitButton.disabled = false;
-  }
-});
+  document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-close-dialog]")) {
+      event.preventDefault();
+      applyDialog.close();
+      return;
+    }
+    if (event.target === applyDialog) applyDialog.close();
+  });
+
+  applyForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!applyForm.checkValidity()) {
+      formStatus.textContent = "Please fill in all required fields.";
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(applyForm));
+    submitButton.disabled = true;
+    formStatus.textContent = "Sending...";
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000); // give up after 15 seconds
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data),
+        signal: controller.signal,
+      });
+      const result = await response.json();
+      if (!result.ok) throw new Error(result.error || "Failed");
+
+      applyForm.reset();
+      formStatus.textContent = "";
+      applyForm.hidden = true;
+      applySuccess.hidden = false;
+    } catch (error) {
+      console.error(error);
+      formStatus.textContent =
+        error.name === "AbortError"
+          ? "This is taking too long. Please try again."
+          : "Sorry, something went wrong. Please try again.";
+    } finally {
+      clearTimeout(timer);
+      submitButton.disabled = false;
+    }
+  });
+}
 
