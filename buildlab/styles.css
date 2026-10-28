@@ -219,3 +219,13 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .audience-resource .audience-secondary{color:var(--yellow)}
 @media(max-width:900px){.audience-hero-grid{gap:34px}.audience-content-heading{gap:25px}.audience-guide-grid{align-items:flex-start;flex-direction:column;gap:15px}}
 @media(max-width:680px){.audience-hero{padding:58px 0 64px}.audience-hero-grid,.audience-content-heading,.audience-step-grid{grid-template-columns:1fr}.audience-hero h1{font-size:clamp(2.55rem,10vw,3.8rem)}.audience-aside{padding:4px 0 4px 20px}.audience-content{padding:62px 0 68px}.audience-content-heading{gap:14px}.audience-content-heading .eyebrow{grid-column:auto;margin-bottom:0}.audience-step-grid article{padding:21px 0 10px}.audience-step-grid article>span{margin-bottom:16px}.audience-resource{padding:54px 0}.audience-resource-grid{align-items:flex-start;flex-direction:column;gap:24px}.audience-guide nav{width:100%}.audience-guide a{flex:1 1 150px}}
+/* About: restore the card rhythm and give its introduction clear color contrast. */
+.about-hero{padding:66px 0 68px;background:linear-gradient(120deg,#102a43 0%,#17466b 100%)}
+.about-hero h1{max-width:790px;margin-bottom:16px;font-size:clamp(2.8rem,5vw,4.4rem)}
+.about-hero .hero-text{max-width:680px}
+.about-hero .microcopy{margin:18px 0 0;color:#d9e9f6}
+.about-intro{background:#f5f8fb}
+.about-intro .section-heading{margin-bottom:36px}
+.about-intro .principle-card{border-color:#d9e2ec;background:#fff;box-shadow:0 8px 24px rgba(16,42,67,.045)}
+.about-intro .principle-card .number{margin-bottom:28px;color:#17619a}
+@media(max-width:680px){.about-hero{padding:58px 0 62px}.about-intro .section-heading{margin-bottom:28px}.about-intro .principle-card{min-height:0}}
