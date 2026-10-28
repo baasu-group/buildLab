@@ -118,7 +118,7 @@ If an authorized push is skipped, confirm that the person pushed using the GitHu
 ## Useful future additions
 
 - Add a `CNAME` file only when a custom domain is configured from a branch source.
-- Add `assets/` for logos and optimized images.
+- The official BuildLab logo is stored at [`assets/buildlab_logo.svg`](../assets/buildlab_logo.svg) and is used in the site header, footer, and browser tab icon.
 - Add `resources/frontend`, `resources/backend`, `resources/ui-ux`, `resources/qa`, `resources/devops`, and `resources/ai-ml` as the learning library grows.
 - Add an `about.html` or `faq.html` only when the homepage becomes too long.
 - Add a privacy notice before collecting applicant information.
