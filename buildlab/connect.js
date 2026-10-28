@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Keep section links useful without leaving a fragment in the address bar.
+  const scrollToSection = (hash) => {
+    const section = document.querySelector(hash);
+    if (!section) return;
+    section.scrollIntoView({ block: "start" });
+    history.replaceState(null, "", location.pathname + location.search);
+  };
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.('a[href="#connect-interest"], a[href="#connect-sessions"]');
+    if (!link) return;
+    event.preventDefault();
+    scrollToSection(link.getAttribute("href"));
+  });
+  if (location.hash === "#connect-interest" || location.hash === "#connect-sessions") {
+    requestAnimationFrame(() => scrollToSection(location.hash));
+  }
+
   const list = document.querySelector("#connect-session-list");
   const empty = document.querySelector("#connect-empty");
   const sessionField = document.querySelector("#connect-session-field");
