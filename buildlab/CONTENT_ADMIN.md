@@ -2,6 +2,8 @@
 
 Keep project and team claims factual and approved before publishing. Do not add private organizational details to public website files.
 
+For future page updates, use `docs/DESIGN_PRINCIPLES.md` and `docs/PAGE_DESIGN_PLAYBOOK.md` to keep the design clear, consistent, and evidence-based.
+
 ## Team profiles
 
 Edit `team.js` to add a profile. A profile renders only when both `visible: true` and `roleVerified: true` are set. Confirm the person's current role, preferred public name, profile link, and consent before enabling visibility. Remove or set `visible: false` to unpublish. Do not include private contact details.
