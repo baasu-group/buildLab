@@ -1,20 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Keep section links useful without leaving a fragment in the address bar.
   const scrollToSection = (hash) => {
     const section = document.querySelector(hash);
     if (!section) return;
-    section.scrollIntoView({ block: "start" });
+    if (section.tagName === "DETAILS") section.open = true;
+    section.scrollIntoView({ block: "start", behavior: "instant" });
     history.replaceState(null, "", location.pathname + location.search);
   };
+
   document.addEventListener("click", (event) => {
-    const link = event.target.closest?.('a[href="#connect-interest"], a[href="#connect-sessions"]');
+    const link = event.target.closest?.('a[href="#connect-inquiry"], a[href="#connect-sessions"], a[href="#connect-session-interest"]');
     if (!link) return;
     event.preventDefault();
     scrollToSection(link.getAttribute("href"));
   });
-  if (location.hash === "#connect-interest" || location.hash === "#connect-sessions") {
-    requestAnimationFrame(() => scrollToSection(location.hash));
+  if (["#connect-inquiry", "#connect-sessions", "#connect-session-interest", "#connect-interest"].includes(location.hash)) {
+    const destination = location.hash === "#connect-interest" ? "#connect-inquiry" : location.hash;
+    requestAnimationFrame(() => scrollToSection(destination));
   }
+
+  const sendForm = (form, successText) => {
+    if (!form) return;
+    const feedback = form.querySelector(".connect-form-feedback");
+    const button = form.querySelector('button[type="submit"]');
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      feedback.hidden = true;
+      feedback.classList.remove("is-success");
+      button.disabled = true;
+      try {
+        const payload = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok || (result.success !== true && result.success !== "true")) {
+          throw new Error("Submission was not confirmed");
+        }
+        form.reset();
+        feedback.textContent = successText;
+        feedback.classList.add("is-success");
+      } catch {
+        feedback.textContent = "Your message could not be sent. Please try again or email buildlab.np@gmail.com.";
+      } finally {
+        feedback.hidden = false;
+        button.disabled = false;
+      }
+    });
+  };
+
+  sendForm(
+    document.querySelector("#connect-business-form"),
+    "Thanks for reaching out! We've received your details and will contact you."
+  );
+  sendForm(
+    document.querySelector("#connect-session-form"),
+    "Thanks for your interest! We've received your message. This is not a confirmed booking."
+  );
 
   const list = document.querySelector("#connect-session-list");
   const empty = document.querySelector("#connect-empty");
@@ -29,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     session.format && session.description &&
     !Number.isNaN(new Date(`${session.date}T${session.time}:00`).getTime())
   );
-
   if (!sessions.length) return;
   empty.hidden = true;
   sessionField.hidden = false;
@@ -57,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const formatLabel = document.createElement("span");
     formatLabel.textContent = session.format;
     const link = document.createElement("a");
-    link.href = "#connect-interest";
-    link.textContent = "Register interest ↗";
+    link.href = "#connect-session-interest";
+    link.textContent = "Register session interest ↗";
     const sessionLabel = `${session.title} (${session.date})`;
     link.addEventListener("click", () => { sessionSelect.value = sessionLabel; });
     meta.append(dateLabel, timeLabel, formatLabel, link);

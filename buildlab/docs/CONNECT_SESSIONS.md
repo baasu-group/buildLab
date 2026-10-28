@@ -1,6 +1,6 @@
 # BuildLab Connect: publishing sessions
 
-The public page is `connect.html`. Its listings come from `connect-data.js`. The array is empty until a session is confirmed; the page then shows an invitation to register interest or suggest a topic.
+The public page is `connect.html`. Its listings come from `connect-data.js`. The array is empty until a session is confirmed; the page then shows “No sessions scheduled right now.” The business inquiry form is separate from the session interest form.
 
 ## Add a confirmed session
 
@@ -25,6 +25,6 @@ The public page is `connect.html`. Its listings come from `connect-data.js`. The
 
 ## Interest and registration wording
 
-The form posts to the site's existing FormSubmit mailbox. It sends the visitor's interest type, optional selected session, name, email, organization, and description. It does **not** reserve a seat. While using this interest form, keep the disclaimer “This is an expression of interest, not a confirmed booking” visible even when a session is listed.
+The session form posts to the site's existing FormSubmit mailbox. It sends the visitor's interest type, optional selected session, name, email, and description. It does **not** reserve a seat. While using this interest form, keep the disclaimer “This is an expression of interest, not a confirmed booking” visible even when a session is listed. The separate business inquiry form asks for a name and phone or WhatsApp contact. Both forms show an on-page success message only after FormSubmit confirms a submission.
 
 If BuildLab later opens confirmed registration, first decide how capacity, confirmations, cancellations, and privacy will be handled. Only then update the form button, help text, disclaimer, and confirmation workflow. Do not call interest submissions registrations until a booking process exists. Check that the FormSubmit mailbox is active before promoting a session.
