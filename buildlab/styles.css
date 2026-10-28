@@ -34,3 +34,17 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 /* Business-focused Expertise section */
 #expertise .section-heading{margin-bottom:34px}#expertise .expertise-grid{align-items:stretch}#expertise .expertise-card{display:flex;min-width:0;flex-direction:column;padding:24px}#expertise .expertise-card .track-icon{width:42px;height:42px;margin-bottom:28px}#expertise .expertise-card svg{width:23px;height:23px}#expertise .expertise-card h3{min-height:2.2em;font-size:1.2rem}#expertise .expertise-card p{min-height:0;margin:0;color:#b9cee0}#expertise .expertise-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:32px;padding:28px 30px;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);background:rgba(255,255,255,.06)}#expertise .expertise-cta h3{margin:0 0 5px;font-size:1.35rem}#expertise .expertise-cta p{margin:0;color:#b9cee0}#expertise .expertise-cta .button{flex:none}
 @media(max-width:680px){#expertise .expertise-card{padding:22px}#expertise .expertise-card .track-icon{margin-bottom:20px}#expertise .expertise-card h3{min-height:0}#expertise .expertise-cta{align-items:flex-start;flex-direction:column;padding:24px}#expertise .expertise-cta .button{width:100%}}
+/* Compact, readable How We Work layout */
+#how-we-work{padding:78px 0 82px}
+#how-we-work .section-heading{max-width:820px;margin-bottom:34px}
+#how-we-work .eyebrow{margin-bottom:12px}
+#how-we-work h2{max-width:800px;margin:0 auto 14px;font-size:clamp(2rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+#how-we-work .section-heading>p:last-child{max-width:650px;margin:0 auto;color:var(--muted);font-size:1rem;line-height:1.55}
+#how-we-work .process-list{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:0}
+#how-we-work .process-list li{min-height:166px;padding:20px;background:#f7f9fc;border-color:#dbe5ef;border-radius:16px}
+#how-we-work .process-list li:before{margin-bottom:22px;font-size:.76rem;letter-spacing:.08em}
+#how-we-work .process-list li strong{font-size:1.02rem;line-height:1.25}
+#how-we-work .process-list li span{margin-top:9px;font-size:.84rem;line-height:1.45}
+@media(max-width:900px){#how-we-work .process-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){#how-we-work{padding:64px 0}#how-we-work .section-heading{margin-bottom:28px}#how-we-work .process-list{grid-template-columns:repeat(2,minmax(0,1fr))}#how-we-work .process-list li{min-height:156px}}
+@media(max-width:480px){#how-we-work .process-list{grid-template-columns:1fr}#how-we-work .process-list li{min-height:0;padding:18px}#how-we-work .process-list li:before{margin-bottom:12px}}
