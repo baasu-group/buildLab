@@ -8,7 +8,7 @@ Edit `team.js` to add a profile. A profile renders only when both `visible: true
 
 ## Projects and expertise
 
-Add completed or client projects only after confirming the status, technologies, BuildLab contribution, public link, and permission to name any client. The four published expertise areas correspond to documented tracks. Confirm qualified contributors before adding Mobile Development, Cloud/DevOps, SaaS, or System Architecture as offered capabilities. The suggested BiiQuiz, Himalayan Peak & Trails, Dockly, and Sync Meetings case studies must stay unpublished until BuildLab’s role and publication rights are confirmed. Use `docs/CASE_STUDY_TEMPLATE.md` for approved project writeups.
+Add completed or client projects only after confirming the status, technologies, BuildLab contribution, public link, and permission to name any client. The internship program has four tracks: UI/UX Design, Frontend, Backend, and Quality Assurance. The DevOps and AI/ML paths are supplementary learning resources, not separate internship tracks. The business-focused Expertise section is a different audience-facing overview. Confirm qualified contributors before adding Mobile Development, Cloud/DevOps, SaaS, or System Architecture as offered capabilities. The suggested BiiQuiz, Himalayan Peak & Trails, Dockly, and Sync Meetings case studies must stay unpublished until BuildLab’s role and publication rights are confirmed. Use `docs/CASE_STUDY_TEMPLATE.md` for approved project writeups.
 
 ## Contact and mentorship
 

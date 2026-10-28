@@ -1,5 +1,5 @@
 /*
- * Internship learning catalogue.
+ * Learning catalogue: four internship tracks plus supplementary study paths.
  * Keep this file content-only so new resources can be added without changing
  * the resource page layout. All links are public and free to access.
  */

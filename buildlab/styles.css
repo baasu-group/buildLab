@@ -48,3 +48,14 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 @media(max-width:900px){#how-we-work .process-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:680px){#how-we-work{padding:64px 0}#how-we-work .section-heading{margin-bottom:28px}#how-we-work .process-list{grid-template-columns:repeat(2,minmax(0,1fr))}#how-we-work .process-list li{min-height:156px}}
 @media(max-width:480px){#how-we-work .process-list{grid-template-columns:1fr}#how-we-work .process-list li{min-height:0;padding:18px}#how-we-work .process-list li:before{margin-bottom:12px}}
+/* Keep the internship hub aligned with its four tracks. */
+#resources .resources-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#resources .resource-card{min-height:330px}
+#resources .resource-card p{min-height:0}
+.supplementary-resources{margin-top:26px;padding:24px 28px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.supplementary-resources strong{font-size:1rem}
+.supplementary-resources p{margin:6px 0 12px;color:var(--muted);font-size:.9rem}
+.supplementary-resources div{display:flex;flex-wrap:wrap;gap:12px 24px}
+.supplementary-resources a{color:var(--blue);font-size:.88rem;font-weight:800}
+.supplementary-resources a:hover{text-decoration:underline}
+@media(max-width:680px){#resources .resources-grid{grid-template-columns:1fr}#resources .resource-card{min-height:0}.supplementary-resources{padding:22px}}
