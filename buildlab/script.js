@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     person.visible === true && person.roleVerified === true && person.name && person.role
   );
   if (teamContainer && approvedTeam.length) {
+    document.querySelector("#team").hidden = false;
     teamEmpty.hidden = true;
     approvedTeam.forEach((person) => {
       const card = document.createElement("article");
