@@ -1,5 +1,5 @@
 /*
- * Learning catalogue: six internship tracks plus a supplementary DevOps study path.
+ * Learning catalogue: seven internship tracks.
  * Keep this file content-only so new resources can be added without changing
  * the resource page layout. All links are public and free to access.
  */
