@@ -131,3 +131,44 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .page-hero-light .hero-text{color:var(--muted)}
 .page-hero-light .microcopy{color:var(--blue)}
 @media(max-width:680px){.page-hero-light{padding-top:58px;padding-bottom:58px}.page-hero-light h1{font-size:clamp(2.5rem,10vw,3.7rem)}}
+/* Opportunities: three distinct paths, shared BuildLab visual language. */
+.opportunities-hero{overflow:hidden;padding:86px 0 90px;color:#fff;background:var(--navy)}
+.opportunities-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:70px;align-items:center}
+.opportunities-hero .eyebrow{color:var(--yellow)}
+.opportunities-hero h1{max-width:780px;margin-bottom:20px;font-size:clamp(3.2rem,6.2vw,6rem)}
+.opportunities-hero h1 span{color:var(--yellow)}
+.opportunities-hero p:not(.eyebrow){max-width:600px;color:#c6daea;font-size:1.12rem}
+.opportunities-hero .opportunities-tagline{margin:30px 0 0;color:#fff;font-size:.9rem;font-weight:800}
+.opportunities-mark{position:relative;display:grid;gap:12px;justify-items:center;max-width:320px;margin-left:auto;transform:rotate(-7deg)}
+.opportunities-mark span,.opportunities-mark strong{display:block;width:100%;padding:14px 20px;border:1px solid rgba(255,255,255,.24);border-radius:14px;background:#193c5a;color:#d8e9f8;font-size:1.3rem;font-weight:800;text-align:center}
+.opportunities-mark span:nth-child(2){margin-left:36px;background:#245478}
+.opportunities-mark strong{margin-left:72px;color:var(--navy);background:var(--yellow);border-color:var(--yellow)}
+.opportunities-pathways{padding:82px 0 96px;background:#f5f8fc}
+.opportunities-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:34px}
+.opportunities-heading .eyebrow{margin-bottom:10px}
+.opportunities-heading h2{max-width:590px;margin:0;font-size:clamp(2.3rem,4vw,3.6rem)}
+.opportunities-heading>p{max-width:300px;margin:0;color:var(--muted)}
+.opportunities-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.opportunity-card{display:flex;min-width:0;flex-direction:column;min-height:430px;padding:30px;border:1px solid #dce7f0;border-radius:20px;background:#fff;box-shadow:0 12px 28px rgba(16,42,67,.045);transition:transform .2s ease,box-shadow .2s ease}
+.opportunity-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px rgba(16,42,67,.1)}
+.opportunity-card-top{display:flex;align-items:start;justify-content:space-between;margin-bottom:34px}
+.opportunity-number{color:var(--blue);font-size:.86rem;font-weight:900;letter-spacing:.1em}
+.opportunity-symbol{display:grid;width:48px;height:48px;place-items:center;border-radius:13px;color:var(--navy);background:var(--yellow);font-size:1.65rem;font-weight:800;line-height:1}
+.opportunity-emerging .opportunity-symbol{background:#dcecff;color:#17619a}
+.opportunity-projects .opportunity-symbol{background:#dff2e8;color:#24734b}
+.opportunity-label{margin:0 0 12px;color:#326b94;font-size:.74rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.opportunity-card h3{margin-bottom:16px;font-size:clamp(1.45rem,2vw,1.85rem)}
+.opportunity-card>p:not(.opportunity-label){margin-bottom:22px;color:var(--muted);font-size:.94rem}
+.opportunity-card ul{display:flex;flex-wrap:wrap;gap:7px;margin:auto 0 24px;padding:0;list-style:none}
+.opportunity-card li{padding:5px 9px;border-radius:7px;background:#eef4f8;color:#45647e;font-size:.72rem;font-weight:800}
+.opportunity-card a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid var(--line);color:#17619a;font-size:.86rem;font-weight:900}
+.opportunity-card a:hover{color:var(--blue)}
+.opportunities-mentorship{padding:65px 0;color:#fff;background:var(--navy)}
+.opportunities-mentorship-grid{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.opportunities-mentorship .eyebrow{margin-bottom:10px;color:var(--yellow)}
+.opportunities-mentorship h2{max-width:700px;margin-bottom:12px;font-size:clamp(2rem,3.5vw,3rem)}
+.opportunities-mentorship p:last-child{margin:0;color:#c6daea}
+.opportunities-mentorship .button{flex:none}
+@media(max-width:900px){.opportunities-hero-grid{gap:30px}.opportunities-mark{max-width:230px}.opportunities-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.opportunity-card{min-height:390px}}
+@media(max-width:680px){.opportunities-hero{padding:64px 0 68px}.opportunities-hero-grid{grid-template-columns:1fr}.opportunities-hero h1{font-size:clamp(3rem,11vw,4.5rem)}.opportunities-mark{display:none}.opportunities-pathways{padding:62px 0 72px}.opportunities-heading{display:block}.opportunities-heading>p{margin-top:15px}.opportunities-grid{grid-template-columns:1fr}.opportunity-card{min-height:0;padding:25px}.opportunity-card-top{margin-bottom:25px}.opportunity-card ul{margin-top:12px}.opportunities-mentorship{padding:55px 0}.opportunities-mentorship-grid{align-items:stretch;flex-direction:column;gap:24px}.opportunities-mentorship .button{align-self:flex-start}}
+@media(prefers-reduced-motion:reduce){.opportunity-card{transition:none}}
