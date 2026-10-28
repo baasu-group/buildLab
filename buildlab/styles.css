@@ -124,3 +124,10 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .journal-article-body figcaption{margin-top:9px;color:var(--muted);font-size:.82rem}
 .journal-article-empty{padding:80px 0}
 @media(max-width:680px){.journal-more-grid{grid-template-columns:1fr}.journal-article-page{padding:55px 0 75px}.journal-back{margin-bottom:36px}.journal-article-body{margin-top:32px}}
+/* Lightweight page introductions for the split content pages. */
+.page-hero-light{padding-top:78px;padding-bottom:78px;color:var(--ink);background:#f5f8fc;border-bottom:1px solid var(--line)}
+.page-hero-light .eyebrow{color:var(--blue)}
+.page-hero-light h1{max-width:850px;font-size:clamp(2.7rem,5vw,4.5rem)}
+.page-hero-light .hero-text{color:var(--muted)}
+.page-hero-light .microcopy{color:var(--blue)}
+@media(max-width:680px){.page-hero-light{padding-top:58px;padding-bottom:58px}.page-hero-light h1{font-size:clamp(2.5rem,10vw,3.7rem)}}

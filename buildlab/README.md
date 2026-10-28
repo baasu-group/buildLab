@@ -160,6 +160,10 @@ The project is divided into four main disciplines.
 
 # 🌐 Internship website
 
+## Website pages
+
+The site uses small static HTML pages. [`index.html`](./index.html) is the short homepage; [`about.html`](./about.html), [`expertise.html`](./expertise.html), [`opportunities.html`](./opportunities.html), [`mentorship.html`](./mentorship.html), and [`contact.html`](./contact.html) hold the detailed content. The [Journal](./journal.html) and [learning resource hub](./resources/index.html) remain separate pages. Navigation is repeated in each HTML file, so update the links consistently when adding a page. Older homepage section links redirect to their new page through [`script.js`](./script.js).
+
 ## Publish a Journal article
 
 Add or edit entries in [`journal-data.js`](./journal-data.js). Keep new articles as drafts until they are ready, then set their status to `published`. The Journal listing and article page are generated automatically. Follow the [beginner-friendly Journal publishing guide](./docs/JOURNAL_PUBLISHING.md) for a copy-and-paste example, image instructions, preview steps, and deployment details.

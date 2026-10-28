@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Keep older shared links to homepage sections working after the page split.
+  if ((location.pathname.endsWith("/") || location.pathname.endsWith("/index.html")) && location.hash) {
+    const previousSections = {
+      about: "about.html#about", expertise: "expertise.html#expertise",
+      "how-we-work": "about.html#how-we-work", pathways: "opportunities.html#pathways",
+      mentorship: "mentorship.html#mentorship", journey: "mentorship.html#journey",
+      resources: "mentorship.html#resources", contact: "contact.html#contact",
+      apply: "mentorship.html#apply", "application-form": "mentorship.html#application-form"
+    };
+    const destination = previousSections[decodeURIComponent(location.hash.slice(1))];
+    if (destination) { location.replace(destination); return; }
+  }
   const year = document.querySelector("#current-year");
   if (year) year.textContent = new Date().getFullYear();
 
