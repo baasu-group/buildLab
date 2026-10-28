@@ -8,7 +8,7 @@ Aim for one reviewed engineering article, one project update or case study, and 
 
 ## Article record
 
-Before publication, record the title, category, real author, their contribution, draft date, publication date, technical reviewer, review status, and approved links or images. Suggested categories: Engineering Notes, Team Culture, Engineering Practice, and Mentorship.
+Before publication, record the title, category, real author, their contribution, draft date, publication date, technical reviewer, review status, and approved links or images. Journal cards use local SVG covers while topics are proposals. When an approved article has a real image, replace its cover image with an optimized local WebP, AVIF, or JPEG at the same aspect ratio. Keep `width` and `height`, use `loading="lazy"` below the first card, and write descriptive alt text for meaningful images. Do not use third-party image URLs or unapproved client screenshots. Suggested categories: Engineering Notes, Team Culture, Engineering Practice, and Mentorship.
 
 ## Review sequence
 
