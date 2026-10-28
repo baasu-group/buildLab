@@ -1,6 +1,6 @@
 /*
  * Add and edit Journal entries here. See docs/JOURNAL_PUBLISHING.md.
- * status: "proposed" shows an idea card; "draft" stays hidden;
+ * status: "proposed" shows an idea and its topic page; "draft" stays hidden;
  * "published" shows a card and opens the full article.
  * Keep image files inside buildlab/assets/ and use paths starting with assets/.
  */
@@ -15,6 +15,7 @@ window.buildLabJournal = [
     imageAlt: "",
     author: "",
     date: "",
+    topics: ["Choosing boundaries between tenants", "Authentication and access", "What to measure as usage grows"],
     content: []
   },
   {
@@ -27,6 +28,7 @@ window.buildLabJournal = [
     imageAlt: "",
     author: "",
     date: "",
+    topics: ["Giving useful feedback", "Keeping reviews focused", "Sharing decisions with the team"],
     content: []
   },
   {
@@ -39,6 +41,7 @@ window.buildLabJournal = [
     imageAlt: "",
     author: "",
     date: "",
+    topics: ["Preparing environments", "Checking a release", "Learning from production feedback"],
     content: []
   },
   {
@@ -51,6 +54,7 @@ window.buildLabJournal = [
     imageAlt: "",
     author: "",
     date: "",
+    topics: ["Moving beyond exercises", "Working with team feedback", "Taking ownership of a contribution"],
     content: []
   }
 ];

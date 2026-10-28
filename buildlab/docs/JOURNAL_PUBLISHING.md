@@ -42,7 +42,7 @@ Do not upload private client data, credentials, unapproved screenshots, or copyr
 ## 3. Preview and publish
 
 1. Keep `status: "draft"` while writing. Drafts do **not** appear on the public Journal.
-2. Use `status: "proposed"` only for an idea card. Proposed cards do not open an article.
+2. Use `status: "proposed"` for an idea card and a short topic page. Add an optional `topics: ["First topic", "Second topic"]` list to explain what the future article will cover. It is clearly labeled as a proposal.
 3. After technical and publication review, set `status: "published"`. A published entry needs a title, author, date, and at least one content block.
 4. From the repository root, run `python3 -m http.server 8000`, then open `http://localhost:8000/buildlab/journal.html` and check the card and article on desktop and mobile.
 5. Commit and push the changed files to `main`. The existing GitHub Pages workflow publishes changes under `buildlab/` when run by an authorized publisher (`basan-ta` or `baasu-group`). Check the Actions tab and the live Journal after deployment.

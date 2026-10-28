@@ -33,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const summary = document.createElement("p");
     summary.textContent = entry.summary || "";
     body.append(label, heading, summary);
-    if (entry.status === "published" && entry.slug) {
+    if (entry.slug) {
       const link = document.createElement("a");
       link.className = "journal-read-link";
       link.href = `article.html?slug=${encodeURIComponent(entry.slug)}`;
-      link.textContent = "Read article ↗";
-      link.setAttribute("aria-label", `Read ${entry.title}`);
+      link.textContent = entry.status === "published" ? "Read article ↗" : "Explore topic ↗";
+      link.setAttribute("aria-label", `${entry.status === "published" ? "Read" : "Explore"} ${entry.title}`);
       body.append(link);
     }
     article.append(body);
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const articleRoot = document.querySelector("[data-journal-article]");
   if (!articleRoot) return;
   const slug = new URLSearchParams(location.search).get("slug");
-  const entry = entries.find((item) => item.slug === slug && item.status === "published" && publishable(item));
+  const entry = entries.find((item) => item.slug === slug && (item.status === "proposed" || (item.status === "published" && publishable(item))));
   if (!entry) {
     articleRoot.innerHTML = '<div class="container journal-article-empty"><h1>Article not available.</h1><p>This article has not been published.</p><a class="text-link" href="journal.html">Back to the Journal ↗</a></div>';
     document.title = "Article not available | BuildLab";
@@ -94,15 +94,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const summary = document.createElement("p");
   summary.className = "journal-article-summary";
   summary.textContent = entry.summary || "";
-  const byline = document.createElement("p");
-  byline.className = "journal-byline";
-  const date = /^\d{4}-\d{2}-\d{2}$/.test(entry.date) ? new Date(`${entry.date}T00:00:00Z`) : null;
-  const dateLabel = date && !Number.isNaN(date.getTime()) ? date.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }) : entry.date;
-  byline.textContent = `By ${entry.author} · ${dateLabel}`;
-  container.append(back, label, title, summary, byline, cover(entry, false));
+  container.append(back, label, title, summary);
+  if (entry.status === "published") {
+    const byline = document.createElement("p");
+    byline.className = "journal-byline";
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(entry.date) ? new Date(`${entry.date}T00:00:00Z`) : null;
+    const dateLabel = date && !Number.isNaN(date.getTime()) ? date.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }) : entry.date;
+    byline.textContent = `By ${entry.author} · ${dateLabel}`;
+    container.append(byline);
+  } else {
+    const status = document.createElement("p");
+    status.className = "journal-topic-status";
+    status.textContent = "Proposed topic · Article in preparation";
+    container.append(status);
+  }
+  container.append(cover(entry, false));
   const content = document.createElement("div");
   content.className = "journal-article-body";
-  entry.content.forEach((block) => {
+  if (entry.status === "proposed") {
+    const intro = document.createElement("p");
+    intro.textContent = "This is a topic we plan to explore in the BuildLab Engineering Journal. The full article will be added after the work and editorial review are complete.";
+    content.append(intro);
+    if (Array.isArray(entry.topics) && entry.topics.length) {
+      const heading = document.createElement("h2");
+      heading.textContent = "What we plan to cover";
+      const list = document.createElement("ul");
+      entry.topics.forEach((topic) => { const item = document.createElement("li"); item.textContent = topic; list.append(item); });
+      content.append(heading, list);
+    }
+  }
+  (entry.status === "published" ? entry.content : []).forEach((block) => {
     if (block.type === "heading" && block.text) {
       const heading = document.createElement("h2");
       heading.textContent = block.text;
