@@ -16,4 +16,4 @@ Project and participation inquiries use `buildlab.np@gmail.com`. The existing si
 
 ## Audience pages and Journal
 
-The industry, emerging talent, and project partnership pages have separate inquiry forms. The Journal contains proposed topics only. Use `docs/EDITORIAL_WORKFLOW.md` before publishing an article. Keep the parent organization’s legal name private on public pages unless the owner changes that instruction.
+The industry, emerging talent, and project partnership pages have separate inquiry forms. The Journal contains proposed topics only. Use `docs/JOURNAL_PUBLISHING.md` to add an entry and `docs/EDITORIAL_WORKFLOW.md` before publishing an article. Keep the parent organization’s legal name private on public pages unless the owner changes that instruction.

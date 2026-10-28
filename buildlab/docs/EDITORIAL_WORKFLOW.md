@@ -1,6 +1,6 @@
 # Engineering Journal workflow
 
-The public Journal currently shows proposed topics, not published articles. Publish only work based on real team experience.
+The Journal displays proposed topics and any approved published articles. Drafts remain hidden. For the step-by-step editing and deployment guide, see [JOURNAL_PUBLISHING.md](./JOURNAL_PUBLISHING.md). Publish only work based on real team experience.
 
 ## Proposed cadence
 

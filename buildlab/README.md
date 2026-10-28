@@ -160,6 +160,10 @@ The project is divided into four main disciplines.
 
 # 🌐 Internship website
 
+## Publish a Journal article
+
+Add or edit entries in [`journal-data.js`](./journal-data.js). Keep new articles as drafts until they are ready, then set their status to `published`. The Journal listing and article page are generated automatically. Follow the [beginner-friendly Journal publishing guide](./docs/JOURNAL_PUBLISHING.md) for a copy-and-paste example, image instructions, preview steps, and deployment details.
+
 The static GitHub Pages site is available in [`index.html`](./index.html). Configure application, feedback, contact, community, and calendar links in [`script.js`](./script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md). Deployment is intentionally gated so only `basan-ta` or `baasu-group` can publish changes from `main`.
 
 The curriculum hub is data-driven: update [`resources/data.js`](./resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, App Development, AI/ML, and DevOps.
