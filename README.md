@@ -39,6 +39,8 @@ Interns will work in specialized tracks while collaborating as one product team.
 | 💻 Frontend Developer | React, Next.js, Tailwind CSS |
 | ⚙️ Backend Developer | Python, Django, DRF, PostgreSQL |
 | 🧪 QA Engineer | Manual testing, API testing, automation mindset |
+| 📱 App Developer | Mobile UI, APIs, testing, release practice |
+| ◎ AI/ML Developer | Data foundations, evaluation, responsible AI |
 
 Each track has its own learning roadmap:
 
@@ -46,6 +48,8 @@ Each track has its own learning roadmap:
 - [`Backend_resources`](./buildlab/INT-026-08-01/Backend_resources)
 - [`UI_UX_resources`](./buildlab/INT-026-08-01/UI_UX_resources)
 - [`QA_resources`](./buildlab/INT-026-08-01/QA_esources)
+- [App Development learning path](./buildlab/resources/index.html?field=app-development)
+- [AI/ML learning path](./buildlab/resources/index.html?field=ai-ml)
 
 ---
 
@@ -156,4 +160,4 @@ The project is divided into four main disciplines.
 
 The static GitHub Pages site lives in [`buildlab/`](./buildlab/). The root [`index.html`](./index.html) redirects visitors there so the existing Pages URL continues working. Configure application, feedback, contact, community, and calendar links in [`buildlab/script.js`](./buildlab/script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md). Deployment is intentionally gated so only `basan-ta` or `baasu-group` can publish changes from `main`.
 
-The curriculum hub is data-driven: update [`buildlab/resources/data.js`](./buildlab/resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, DevOps, and AI/ML.
+The curriculum hub is data-driven: update [`buildlab/resources/data.js`](./buildlab/resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, App Development, AI/ML, and supplementary DevOps.

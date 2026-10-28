@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.title = `${resource.title} | BuildLab`;
   document.querySelector("[data-resource-icon]").textContent = resource.icon;
-  document.querySelector("[data-resource-status]").textContent = ["devops", "ai-ml"].includes(field) ? "Supplementary learning" : "Internship track";
+  document.querySelector("[data-resource-status]").textContent = field === "devops" ? "Supplementary learning" : "Internship track";
   document.querySelector("[data-resource-phase]").textContent = resource.phase;
   document.querySelector("[data-resource-title]").textContent = resource.title;
   document.querySelector("[data-resource-summary]").textContent = resource.summary;

@@ -1,5 +1,5 @@
 /*
- * Learning catalogue: four internship tracks plus supplementary study paths.
+ * Learning catalogue: six internship tracks plus a supplementary DevOps study path.
  * Keep this file content-only so new resources can be added without changing
  * the resource page layout. All links are public and free to access.
  */
@@ -225,6 +225,48 @@ window.resourceCatalog = {
       { title: "Containerize the development stack", brief: "Run the application and PostgreSQL locally with reproducible configuration and health checks.", deliverable: "Dockerfiles, Compose file, setup instructions, and troubleshooting notes.", projectApplication: "Makes onboarding and cross-track integration reliable." },
       { title: "Add pull-request CI", brief: "Run formatting, tests, and basic security checks for every pull request.", deliverable: "GitHub Actions workflow with clear pass/fail output.", projectApplication: "Creates a quality gate before changes enter the shared product." },
       { title: "Write a production runbook", brief: "Document deployment, environment variables, logs, health checks, rollback, and common incidents.", deliverable: "A versioned runbook tested by another intern.", projectApplication: "Builds real operational ownership before final handoff." }
+    ]
+  },
+  "app-development": {
+    slug: "app-development",
+    title: "App Development",
+    shortTitle: "App Development",
+    icon: "▣",
+    status: "Available",
+    phase: "Months 1–6",
+    summary: "Design, build, test, and improve a mobile app that connects to real services and works across device sizes.",
+    stack: ["Mobile UI", "Navigation", "APIs", "Local data", "Testing", "Release"],
+    topics: [
+      { title: "Mobile product foundations", description: "Understand mobile users, platform conventions, accessibility, and device constraints.", phase: "Months 1–2" },
+      { title: "App structure and tooling", description: "Set up a development environment, understand project structure, and use version control.", phase: "Months 1–2" },
+      { title: "Screens and navigation", description: "Build reusable screens, route between them, and handle loading and empty states.", phase: "Months 2–3" },
+      { title: "State and forms", description: "Manage user input, validation, local state, and clear error feedback.", phase: "Months 2–3" },
+      { title: "APIs and authentication", description: "Connect to a backend, handle sessions, and protect sensitive data.", phase: "Months 3–4" },
+      { title: "Local data and offline behavior", description: "Store useful data, handle poor connectivity, and recover from failures.", phase: "Months 4–5" },
+      { title: "Testing and accessibility", description: "Test core flows and make the app usable with assistive technologies.", phase: "Months 4–5" },
+      { title: "Release and iteration", description: "Prepare builds, review quality, document changes, and improve from feedback.", phase: "Months 5–6" }
+    ],
+    docs: [
+      { title: "Flutter learning pathway", url: "https://docs.flutter.dev/learn", source: "Official Flutter documentation", level: "Foundation", reason: "Study app structure, UI, data, and architecture." },
+      { title: "Android Developers guide", url: "https://developer.android.com/guide", source: "Official Android documentation", level: "Platform", reason: "Understand Android app concepts and device behavior." },
+      { title: "SwiftUI resources", url: "https://developer.apple.com/swiftui/resources/", source: "Apple Developer", level: "Platform", reason: "Explore official Apple app tutorials and design resources." },
+      { title: "Expo documentation", url: "https://docs.expo.dev/", source: "Official Expo documentation", level: "Tooling", reason: "Compare a JavaScript-based mobile development workflow." },
+      { title: "React Native documentation", url: "https://reactnative.dev/docs/getting-started", source: "Official React Native documentation", level: "Framework", reason: "Understand components and mobile UI fundamentals." },
+      { title: "Android accessibility", url: "https://developer.android.com/guide/topics/ui/accessibility", source: "Official Android documentation", level: "Accessibility", reason: "Apply accessible interaction patterns to mobile screens." },
+      { title: "Flutter testing", url: "https://docs.flutter.dev/testing", source: "Official Flutter documentation", level: "Quality", reason: "Learn unit, widget, and integration testing approaches." },
+      { title: "Apple Human Interface Guidelines", url: "https://developer.apple.com/design/human-interface-guidelines/", source: "Apple Developer", level: "Design", reason: "Review platform patterns and usability guidance." }
+    ],
+    videos: [
+      { title: "Flutter official learning videos", url: "https://www.youtube.com/@flutterdev/videos", channel: "Flutter", outcome: "See official app-building explanations and examples.", level: "Foundation" },
+      { title: "Android Developers videos", url: "https://www.youtube.com/@AndroidDevelopers/videos", channel: "Android Developers", outcome: "Explore Android app design and implementation topics.", level: "Platform" },
+      { title: "Apple Developer videos", url: "https://developer.apple.com/videos/", channel: "Apple Developer", outcome: "Watch official sessions on Apple app development.", level: "Platform" },
+      { title: "Mobile app development project walkthroughs", url: "https://www.youtube.com/results?search_query=mobile+app+development+project+API+testing+accessibility", channel: "YouTube search", outcome: "Compare complete app workflows and review choices critically.", level: "Practice" }
+    ],
+    youtubeSearchUrl: "https://www.youtube.com/results?search_query=mobile+app+development+real+project+API+testing",
+    practiceTasks: [
+      { title: "Prototype a mobile workflow", brief: "Turn a product requirement into screens, navigation, and useful loading and error states.", deliverable: "Interactive prototype or working app flow with design notes.", projectApplication: "Clarifies how a team-management task works on a phone." },
+      { title: "Connect an app to an API", brief: "Display real data, validate a form, and handle authentication and network failures.", deliverable: "Working integrated feature with documented API assumptions.", projectApplication: "Connects mobile experience to the shared product backend." },
+      { title: "Test and prepare a release", brief: "Check usability, accessibility, core flows, and behavior on different device sizes.", deliverable: "Test report, fixed defects, and release checklist.", projectApplication: "Builds confidence before sharing the app with users." }
     ]
   },
   "ai-ml": {
