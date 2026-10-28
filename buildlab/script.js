@@ -1,8 +1,7 @@
 /* Replace the placeholder values below before publishing. */
 const siteConfig = {
-  applicationForm: "", // Example: https://forms.gle/your-application-form
   feedbackForm: "", // Example: https://forms.gle/your-feedback-form
-  contactEmail: "mailto:baasugroup@gmail.com",
+  contactEmail: "mailto:buildlab.np@gmail.com",
   githubRepo: "https://github.com/baasu-group/learning-resources",
   linkedin: "", // Example: https://www.linkedin.com/company/your-company
   discord: "", // Example: https://discord.gg/your-community

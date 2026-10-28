@@ -19,7 +19,6 @@ Before publishing, edit [`buildlab/script.js`](../buildlab/script.js) and replac
 
 ```js
 const siteConfig = {
-  applicationForm: "https://forms.gle/your-application-form",
   feedbackForm: "https://forms.gle/your-feedback-form",
   contactEmail: "mailto:your-email@example.com",
   githubRepo: "https://github.com/your-org/your-repository",
@@ -33,7 +32,7 @@ const siteConfig = {
 
 Recommended site links:
 
-- Application form: name, email, track, portfolio, availability, and motivation.
+- The homepage includes an application form that emails submissions to `buildlab.np@gmail.com`.
 - Feedback form: week, rating, blockers, and suggestions.
 - Contact email: general questions and partnerships.
 - GitHub: source code and contribution guide.

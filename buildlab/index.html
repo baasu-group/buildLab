@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#102a43" />
     <title>BuildLab | Learn. Build. Ship.</title>
     <link rel="icon" href="assets/buildlab_logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261028-2" />
+    <link rel="stylesheet" href="styles.css?v=20261028-3" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -16,7 +16,7 @@
         <a class="brand" href="#top" aria-label="BuildLab home"><img class="brand-logo" src="assets/buildlab_logo.svg" alt="" /><span>BuildLab</span></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
         <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-          <a href="#program">Program</a><a href="#journey">Six months</a><a href="#tracks">Tracks</a><a href="#resources">Resources</a><a href="#apply">Apply</a><a class="nav-cta" data-link="applicationForm" href="#apply">Application form</a>
+          <a href="#program">Program</a><a href="#journey">Six months</a><a href="#tracks">Tracks</a><a href="#resources">Resources</a><a href="#apply">Apply</a><a class="nav-cta" href="#application-form">Application form</a>
         </nav>
       </div>
     </header>
@@ -96,7 +96,28 @@
 
       <section id="apply" class="section-pad apply-section">
         <div class="container apply-grid">
-          <div><p class="eyebrow">Ready to contribute?</p><h2>Bring curiosity, consistency, and the willingness to learn.</h2><p class="lead">Applications, questions, and collaboration requests can all start through the links below. Add your real form URLs in <code>script.js</code> before publishing.</p><div class="contact-actions"><a class="button button-primary" data-link="applicationForm" href="#apply">Application form <span>↗</span></a><a class="button button-secondary" data-link="contactEmail" href="mailto:baasugroup@gmail.com">Contact the team</a></div></div>
+          <div><p class="eyebrow">Ready to contribute?</p><h2>Bring curiosity, consistency, and the willingness to learn.</h2><p class="lead">Tell us about yourself, the track you’re interested in, and what you hope to build.</p><form id="application-form" class="application-form" action="https://formsubmit.co/buildlab.np@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New BuildLab application" />
+            <input type="hidden" name="_template" value="table" />
+            <label for="applicant-name">Full name</label>
+            <input id="applicant-name" name="name" type="text" autocomplete="name" required />
+            <label for="applicant-email">Email address</label>
+            <input id="applicant-email" name="email" type="email" autocomplete="email" required />
+            <label for="applicant-track">Preferred track</label>
+            <select id="applicant-track" name="preferred_track" required>
+              <option value="" selected disabled>Select a track</option>
+              <option>UI/UX Design</option>
+              <option>Frontend</option>
+              <option>Backend</option>
+              <option>Quality Assurance</option>
+            </select>
+            <label for="applicant-portfolio">Portfolio or GitHub link <span>(optional)</span></label>
+            <input id="applicant-portfolio" name="portfolio_or_github" type="url" autocomplete="url" />
+            <label for="applicant-motivation">What would you like to learn or contribute?</label>
+            <textarea id="applicant-motivation" name="motivation" rows="5" required></textarea>
+            <button class="button button-primary" type="submit">Send application <span aria-hidden="true">→</span></button>
+            <p class="form-note">Your application will be sent to BuildLab by email.</p>
+          </form><div class="contact-actions"><a class="button button-secondary" data-link="contactEmail" href="mailto:buildlab.np@gmail.com">Contact the team</a></div></div>
           <div class="apply-panel"><h3>Before you apply</h3><ul class="check-list"><li>Choose one primary track.</li><li>Be ready to collaborate across tracks.</li><li>Share what you want to learn and build.</li><li>Commit to weekly reviews and deliverables.</li></ul><div class="panel-links"><a data-link="feedbackForm" href="#apply">Give program feedback <span>↗</span></a><a data-link="calendar" href="#apply">Book a conversation <span>↗</span></a></div></div>
         </div>
       </section>
@@ -104,7 +125,7 @@
       <section class="faq-section section-pad"><div class="container narrow-container"><div class="section-heading centered-heading"><p class="eyebrow">Good to know</p><h2>Frequently asked questions</h2></div><div class="faq-list"><details><summary>Is this a tutorial-based internship?</summary><p>No. Learning supports the work, but the main experience is collaborating on a real product and improving it through feedback.</p></details><details><summary>Do I need to know every technology already?</summary><p>No. You should have fundamentals, curiosity, and consistency. The program is designed to help you keep learning while building.</p></details><details><summary>What will I leave with?</summary><p>A practical project contribution, review experience, team collaboration habits, and a portfolio-ready story about what you built.</p></details><details><summary>Can the scope change?</summary><p>Yes. The platform scope is a starting point. Feedback and learning may change priorities while keeping the product direction clear.</p></details></div></div></section>
     </main>
 
-    <footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="#top"><img class="brand-logo" src="assets/buildlab_logo.svg" alt="" /><span>BuildLab</span></a><p>Learn. Build. Collaborate. Ship.</p><p>Lead by <strong>basan-ta</strong></p></div><div class="footer-links"><a href="#program">Program</a><a href="#journey">Six months</a><a href="#tracks">Tracks</a><a href="#resources">Resources</a><a href="#apply">Apply</a></div><div class="footer-links"><a data-link="githubRepo" href="https://github.com/">GitHub</a><a data-link="linkedin" href="#apply">LinkedIn</a><a data-link="discord" href="#apply">Community</a><a data-link="contactEmail" href="mailto:baasugroup@gmail.com">Email</a></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> BuildLab</span><span>Built for learning in public.</span></div></footer>
+    <footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="#top"><img class="brand-logo" src="assets/buildlab_logo.svg" alt="" /><span>BuildLab</span></a><p>Learn. Build. Collaborate. Ship.</p><p>Lead by <strong>basan-ta</strong></p></div><div class="footer-links"><a href="#program">Program</a><a href="#journey">Six months</a><a href="#tracks">Tracks</a><a href="#resources">Resources</a><a href="#apply">Apply</a></div><div class="footer-links"><a data-link="githubRepo" href="https://github.com/">GitHub</a><a data-link="linkedin" href="#apply">LinkedIn</a><a data-link="discord" href="#apply">Community</a><a data-link="contactEmail" href="mailto:buildlab.np@gmail.com">Email</a></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> BuildLab</span><span>Built for learning in public.</span></div></footer>
     <script src="resources/data.js"></script>
     <script src="script.js"></script>
   </body>
