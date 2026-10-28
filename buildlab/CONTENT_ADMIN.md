@@ -17,3 +17,7 @@ Project and participation inquiries use `buildlab.np@gmail.com`. The existing si
 ## Audience pages and Journal
 
 The industry, emerging talent, and project partnership pages have separate inquiry forms. The Journal contains proposed topics only. Use `docs/JOURNAL_PUBLISHING.md` to add an entry and `docs/EDITORIAL_WORKFLOW.md` before publishing an article. Keep the parent organization’s legal name private on public pages unless the owner changes that instruction.
+
+## Business sessions
+
+BuildLab Connect uses `connect-data.js` for confirmed sessions and an on-page FormSubmit interest form. Follow `docs/CONNECT_SESSIONS.md` when adding listings or changing the form from interest collection to registration. Do not publish unconfirmed dates, venues, speakers, or outcomes.
