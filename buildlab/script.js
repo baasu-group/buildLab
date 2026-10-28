@@ -1,33 +1,6 @@
-/* Replace the placeholder values below before publishing. */
-const siteConfig = {
-  feedbackForm: "", // Example: https://forms.gle/your-feedback-form
-  contactEmail: "mailto:buildlab.np@gmail.com",
-  githubRepo: "https://github.com/baasu-group/learning-resources",
-  linkedin: "", // Example: https://www.linkedin.com/company/your-company
-  discord: "", // Example: https://discord.gg/your-community
-  calendar: "", // Example: https://cal.com/your-team/intro
-  resourceFrontend: "INT-026-08-01/Frontend_Resources/README.md",
-  resourceBackend: "INT-026-08-01/Backend_resources/README.md",
-  resourceUiUx: "INT-026-08-01/UI_UX_resources/README.md",
-  resourceQa: "INT-026-08-01/QA_esources/README.md",
-  resourceDevops: "", // Example: https://github.com/baasu-group/learning-resources/tree/main/resources/devops
-  resourceAiMl: "", // Example: https://github.com/baasu-group/learning-resources/tree/main/resources/ai-ml
-};
-
 document.addEventListener("DOMContentLoaded", () => {
   const year = document.querySelector("#current-year");
   if (year) year.textContent = new Date().getFullYear();
-
-  document.querySelectorAll("[data-link]").forEach((element) => {
-    const destination = siteConfig[element.dataset.link];
-    if (destination) {
-      element.href = destination;
-      if (/^https?:\/\//i.test(destination)) {
-        element.target = "_blank";
-        element.rel = "noopener noreferrer";
-      }
-    }
-  });
 
   document.querySelectorAll("[data-resource-card]").forEach((card) => {
     const resource = window.resourceCatalog?.[card.dataset.resourceCard];
@@ -38,6 +11,40 @@ document.addEventListener("DOMContentLoaded", () => {
     card.querySelector("[data-resource-card-docs]").textContent = resource.docs.length;
     card.querySelector("[data-resource-card-videos]").textContent = resource.videos.length;
   });
+
+  const teamContainer = document.querySelector("#team-profiles");
+  const teamEmpty = document.querySelector("#team-empty");
+  const approvedTeam = (window.buildLabTeam || []).filter((person) =>
+    person.visible === true && person.roleVerified === true && person.name && person.role
+  );
+  if (teamContainer && approvedTeam.length) {
+    teamEmpty.hidden = true;
+    approvedTeam.forEach((person) => {
+      const card = document.createElement("article");
+      card.className = "principle-card team-card";
+      const name = document.createElement("h3");
+      name.textContent = person.name;
+      const role = document.createElement("p");
+      role.className = "team-role";
+      role.textContent = person.role;
+      card.append(name, role);
+      if (person.bio) {
+        const bio = document.createElement("p");
+        bio.textContent = person.bio;
+        card.append(bio);
+      }
+      if (person.url && /^https:\/\//i.test(person.url)) {
+        const link = document.createElement("a");
+        link.className = "text-link";
+        link.href = person.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Professional profile ↗";
+        card.append(link);
+      }
+      teamContainer.append(card);
+    });
+  }
 
   const menuButton = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".site-nav");
