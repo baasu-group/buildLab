@@ -43,6 +43,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const resourceHref = (href) => /^(https?:|mailto:|#)/.test(href) ? href : resourcePath + href;
   const nav = document.querySelector(".site-nav");
   if (nav) {
+    const aboutLink = nav.querySelector("[data-about-link]");
+    const aboutWrapper = document.createElement("div");
+    aboutWrapper.className = "about-nav";
+    const aboutTrigger = document.createElement("button");
+    aboutTrigger.className = "resources-trigger";
+    aboutTrigger.type = "button";
+    aboutTrigger.textContent = "About";
+    aboutTrigger.setAttribute("aria-expanded", "false");
+    aboutTrigger.setAttribute("aria-controls", "about-popover");
+    const aboutPanel = document.createElement("div");
+    aboutPanel.id = "about-popover";
+    aboutPanel.className = "about-popover";
+    aboutPanel.hidden = true;
+    aboutPanel.innerHTML = `<p class="nav-popover-label">Explore BuildLab</p><a href="${resourceHref("about.html")}"><strong>About us</strong><span>Meet the people and purpose behind the work.</span></a><a href="${resourceHref("expertise.html")}"><strong>Our expertise</strong><span>Explore the software and technology we build.</span></a><a href="${resourceHref("about.html#how-we-work")}"><strong>How we work</strong><span>See the shared process behind a project.</span></a>`;
+    if (location.pathname.endsWith("/about.html") || location.pathname.endsWith("/expertise.html")) aboutTrigger.classList.add("is-current");
+    aboutWrapper.append(aboutTrigger, aboutPanel);
+    if (aboutLink) aboutLink.replaceWith(aboutWrapper);
+    const closeAbout = () => { aboutPanel.hidden = true; aboutTrigger.setAttribute("aria-expanded", "false"); };
     const wrapper = document.createElement("div");
     wrapper.className = "resources-nav";
     const trigger = document.createElement("button");
@@ -51,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger.setAttribute("aria-expanded", "false");
     trigger.setAttribute("aria-controls", "resources-popover");
     trigger.textContent = "Resources";
+    if (location.pathname.endsWith("/library.html") || location.pathname.endsWith("/journal.html") || location.pathname.includes("/resources/")) trigger.classList.add("is-current");
     const panel = document.createElement("div");
     panel.id = "resources-popover";
     panel.className = "resources-popover";
@@ -112,7 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
     mentorshipLink.href = resourceHref("mentorship.html");
     mentorshipLink.className = "resources-mentorship-link";
     mentorshipLink.innerHTML = '<strong>Mentorship at BuildLab</strong><span>Explore the six-month journey and seven learning tracks →</span>';
-    list.append(allResources, mentorshipLink);
+    const journalLink = document.createElement("a");
+    journalLink.href = resourceHref("journal.html");
+    journalLink.className = "resources-all-link";
+    journalLink.textContent = "Engineering Journal →";
+    list.append(allResources, journalLink, mentorshipLink);
     wrapper.append(trigger, panel);
     const fallbackLink = nav.querySelector("[data-resources-link]");
     if (fallbackLink) fallbackLink.replaceWith(wrapper);
@@ -121,14 +144,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeResources = () => { panel.hidden = true; trigger.setAttribute("aria-expanded", "false"); };
     trigger.addEventListener("click", () => {
       const opening = panel.hidden;
+      if (opening) closeAbout();
       panel.hidden = !opening;
       trigger.setAttribute("aria-expanded", String(opening));
     });
+    aboutTrigger.addEventListener("click", () => {
+      const opening = aboutPanel.hidden;
+      if (opening) closeResources();
+      aboutPanel.hidden = !opening;
+      aboutTrigger.setAttribute("aria-expanded", String(opening));
+    });
     document.addEventListener("click", (event) => { if (!wrapper.contains(event.target)) closeResources(); });
+    document.addEventListener("click", (event) => { if (!aboutWrapper.contains(event.target)) closeAbout(); });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !panel.hidden) { closeResources(); trigger.focus(); }
+      if (event.key === "Escape" && !aboutPanel.hidden) { closeAbout(); aboutTrigger.focus(); }
     });
     panel.addEventListener("click", (event) => { if (event.target.closest("a")) closeResources(); });
+    aboutPanel.addEventListener("click", (event) => { if (event.target.closest("a")) closeAbout(); });
   }
 
   const categoryGrid = document.querySelector("[data-library-categories]");

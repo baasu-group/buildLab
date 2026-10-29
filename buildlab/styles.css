@@ -415,12 +415,19 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .business-service-actions a{color:#a9d0ff;font-weight:800}.business-service-actions a:last-child{color:#9cf0b5}
 @media(max-width:680px){.business-service-grid{grid-template-columns:1fr}.business-service-card:first-child{grid-column:auto}.business-service-card{min-height:0;padding:27px}.business-service-number{margin-bottom:25px}}
 /* Shared Resources navigation and library. */
-.site-nav:has(.resources-nav){gap:18px;font-size:.86rem}
+.site-nav:has(.resources-nav){gap:18px;font-size:.9rem}
 .site-header:has(.resources-nav) .nav-wrap{gap:18px}
-.resources-nav{position:relative}
+.resources-nav,.about-nav{position:relative}
 .resources-trigger{padding:9px 12px;border:0;border-radius:7px;color:var(--ink);background:#edf2f7;font:inherit;font-weight:800;cursor:pointer}
 .resources-trigger:after{content:"⌄";margin-left:8px}.resources-trigger[aria-expanded="true"]:after{content:"⌃"}
 .resources-trigger:hover,.resources-trigger[aria-expanded="true"]{background:#dce9f4}
+.resources-trigger.is-current{color:#17619a;background:#e4f2fb}
+.about-popover{position:absolute;top:calc(100% + 23px);left:0;z-index:30;display:grid;gap:4px;width:320px;padding:14px;border:1px solid #d7e0eb;border-radius:14px;background:#fff;box-shadow:0 24px 70px rgba(7,29,49,.23)}
+.about-popover[hidden]{display:none}
+.nav-popover-label{margin:3px 12px 7px;color:var(--muted);font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.about-popover a{display:grid;gap:3px;padding:12px;border-radius:8px;white-space:normal}
+.about-popover a:hover,.about-popover a:focus-visible{background:#edf2f7}
+.about-popover a span{color:var(--muted);font-size:.82rem;font-weight:500;line-height:1.4}
 .resources-popover{position:absolute;top:calc(100% + 23px);right:-260px;z-index:30;display:grid;grid-template-columns:285px minmax(380px,1fr);width:min(820px,calc(100vw - 40px));min-height:510px;overflow:hidden;border:1px solid #d7e0eb;border-radius:14px;background:#fff;box-shadow:0 24px 70px rgba(7,29,49,.23);font-size:.94rem;font-weight:500}
 .resources-popover[hidden]{display:none}
 .resources-popover-list{display:flex;flex-direction:column;gap:4px;padding:20px;background:#eff1f7}
@@ -449,3 +456,4 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .library-about-link{display:inline-block;margin:15px;color:#b9dcf5;font-weight:800}
 @media(max-width:1200px){.site-header:has(.resources-nav) .site-nav{position:absolute;top:76px;right:14px;left:14px;display:none;padding:16px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);font-size:.92rem}.site-header:has(.resources-nav) .site-nav.is-open{display:grid;gap:5px}.site-header:has(.resources-nav) .site-nav a{padding:10px}.site-header:has(.resources-nav) .menu-toggle{display:grid;gap:4px;padding:8px}.site-header:has(.resources-nav) .menu-toggle span:not(.sr-only){width:22px;height:2px;background:var(--navy)}.resources-popover{position:static;grid-template-columns:1fr;width:100%;min-height:0;max-height:65vh;overflow:auto;margin-top:8px;box-shadow:none}.resources-popover-list{padding:12px}.resources-mentorship-link{margin-top:10px}.resources-popover-content{padding:18px}.resources-trigger{width:100%;text-align:left}.library-category-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:680px){.library-hero{padding:75px 0}.library-category-grid,.library-item-grid,.library-cheat-sheets,.library-mentorship-grid{grid-template-columns:1fr}.library-group{padding:55px 0}.library-category-card{min-height:100px}.resources-popover{max-height:60vh}.resources-popover-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:10px}.resources-popover-list button{padding:8px;font-size:.82rem;line-height:1.25}.resources-all-link,.resources-mentorship-link{grid-column:1/-1;margin-top:2px}.resources-mentorship-link{padding:10px}.resources-mentorship-link span{font-size:.76rem}}
+@media(max-width:1200px){.about-popover{position:static;width:100%;margin-top:8px;box-shadow:none}.about-nav .resources-trigger{width:100%;text-align:left}}
