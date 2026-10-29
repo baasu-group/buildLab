@@ -72,6 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
   resource.videos.forEach((item) => {
     const article = document.createElement("article");
     article.className = "resource-link-card video-card";
+    const id = new URL(item.url).searchParams.get("v");
+    const thumb = externalLink(item.url);
+    thumb.className = "video-thumb";
+    thumb.setAttribute("aria-label", `Open on YouTube: ${item.title}`);
+    thumb.innerHTML = id
+      ? `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy" />`
+      : `<span>▶</span>`;
     const link = externalLink(item.url);
     link.className = "resource-link-title";
     link.textContent = `${item.title} ↗`;
@@ -80,7 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     source.textContent = `${item.channel} · ${item.level}`;
     const outcome = document.createElement("p");
     outcome.textContent = item.outcome;
-    article.append(link, source, outcome);
+    const text = document.createElement("div");
+    text.className = "video-text";
+    text.append(link, source, outcome);
+    article.append(thumb, text);~
     videos.appendChild(article);
   });
   document.querySelector("[data-resource-youtube-search]").href = resource.youtubeSearchUrl;
