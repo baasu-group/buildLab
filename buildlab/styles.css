@@ -457,3 +457,17 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 @media(max-width:1200px){.site-header:has(.resources-nav) .site-nav{position:absolute;top:76px;right:14px;left:14px;display:none;padding:16px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);font-size:.92rem}.site-header:has(.resources-nav) .site-nav.is-open{display:grid;gap:5px}.site-header:has(.resources-nav) .site-nav a{padding:10px}.site-header:has(.resources-nav) .menu-toggle{display:grid;gap:4px;padding:8px}.site-header:has(.resources-nav) .menu-toggle span:not(.sr-only){width:22px;height:2px;background:var(--navy)}.resources-popover{position:static;grid-template-columns:1fr;width:100%;min-height:0;max-height:65vh;overflow:auto;margin-top:8px;box-shadow:none}.resources-popover-list{padding:12px}.resources-mentorship-link{margin-top:10px}.resources-popover-content{padding:18px}.resources-trigger{width:100%;text-align:left}.library-category-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:680px){.library-hero{padding:75px 0}.library-category-grid,.library-item-grid,.library-cheat-sheets,.library-mentorship-grid{grid-template-columns:1fr}.library-group{padding:55px 0}.library-category-card{min-height:100px}.resources-popover{max-height:60vh}.resources-popover-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:10px}.resources-popover-list button{padding:8px;font-size:.82rem;line-height:1.25}.resources-all-link,.resources-mentorship-link{grid-column:1/-1;margin-top:2px}.resources-mentorship-link{padding:10px}.resources-mentorship-link span{font-size:.76rem}}
 @media(max-width:1200px){.about-popover{position:static;width:100%;margin-top:8px;box-shadow:none}.about-nav .resources-trigger{width:100%;text-align:left}}
+/* Shared form presentation; each page keeps its own questions and submission purpose. */
+.application-form.form-card{display:grid;gap:10px;width:100%;max-width:620px;margin-top:24px;padding:30px;color:var(--ink);background:#fff;border:1px solid #d9e2ec;border-radius:16px;box-shadow:0 18px 45px rgba(7,29,49,.13)}
+.application-form.form-card.connect-business-form{max-width:none;margin-top:0}
+.application-form.form-card label{margin-top:8px;color:var(--ink);font-size:.9rem;font-weight:800}
+.application-form.form-card label span{color:var(--muted);font-weight:500;opacity:1}
+.application-form.form-card label span[aria-hidden="true"]{color:#a72f36;font-weight:800}
+.application-form.form-card input:not([type="hidden"]),.application-form.form-card select,.application-form.form-card textarea{min-height:50px;padding:12px 14px;color:var(--ink);background:#fff;border:1px solid #bfcbd8;border-radius:8px;font:inherit}
+.application-form.form-card textarea{min-height:112px;resize:vertical}
+.application-form.form-card input:focus-visible,.application-form.form-card select:focus-visible,.application-form.form-card textarea:focus-visible{outline:3px solid rgba(47,128,237,.28);outline-offset:1px;border-color:#17619a}
+.application-form.form-card button[type="submit"]{justify-self:stretch;width:100%;margin-top:18px;border-radius:8px}
+.application-form.form-card .form-note{margin:5px 0 0;color:var(--muted);font-size:.82rem}
+.application-form.form-card .connect-form-feedback{margin-top:6px}
+.application-form.form-card #connect-session-field:not([hidden]){gap:10px}
+@media(max-width:680px){.application-form.form-card{padding:20px}}
