@@ -1,4 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const businessForm = document.querySelector("#connect-business-form");
+  const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  const pageParams = new URLSearchParams(location.search);
+  const attributionStore = "buildlab-business-attribution";
+  let attribution = { landing_page: location.pathname, ...Object.fromEntries(campaignKeys.map((key) => [key, ""])) };
+  try {
+    attribution = { ...attribution, ...JSON.parse(sessionStorage.getItem(attributionStore) || "{}") };
+    if (campaignKeys.some((key) => pageParams.has(key))) {
+      attribution.landing_page = location.pathname;
+      for (const key of campaignKeys) attribution[key] = pageParams.get(key) || "";
+    }
+    sessionStorage.setItem(attributionStore, JSON.stringify(attribution));
+  } catch {
+    for (const key of campaignKeys) {
+      if (pageParams.has(key)) attribution[key] = pageParams.get(key) || "";
+    }
+  }
+  const setLeadField = (name, value) => {
+    const field = businessForm?.elements.namedItem(name);
+    if (field) field.value = value;
+  };
+  const fillAttribution = () => {
+    setLeadField("landing_page", attribution.landing_page);
+    for (const key of campaignKeys) setLeadField(key, attribution[key] || "");
+  };
+  fillAttribution();
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.("a[data-lead-source]");
+    if (!link) return;
+    setLeadField("lead_source", link.dataset.leadSource);
+    setLeadField("selected_challenge", link.dataset.leadChallenge || "");
+    const topic = businessForm?.elements.namedItem("need");
+    if (topic && [...topic.options].some((option) => option.value === link.dataset.leadChallenge)) {
+      topic.value = link.dataset.leadChallenge;
+    }
+  });
   const scrollToSection = (hash) => {
     const section = document.querySelector(hash);
     if (!section) return;
@@ -25,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
+      if (form === businessForm) fillAttribution();
       feedback.hidden = true;
       feedback.classList.remove("is-success");
       button.disabled = true;
