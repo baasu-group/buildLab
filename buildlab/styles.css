@@ -472,19 +472,28 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .application-form.form-card #connect-session-field:not([hidden]){gap:10px}
 @media(max-width:680px){.application-form.form-card{padding:20px}}
 /* Minimal business-first homepage. */
-.home-page .site-header{background:rgba(255,255,255,.97)}
+.home-page .site-header{background:#071d31;border-bottom-color:rgba(255,255,255,.12)}
 .home-page .nav-wrap{min-height:70px}
-.home-page .site-nav .nav-cta{border-radius:8px}
-.minimal-hero{padding:86px 0 78px;background:#f7f9fb}
+.home-page .brand{color:#fff}
+.home-page .site-nav .nav-cta{border-radius:8px;background:#ffcf53;color:#102a43}
+.home-page .site-nav .nav-cta:hover{background:#ffe18a;color:#102a43}
+.home-page .resources-trigger{color:#e3eef6;background:rgba(255,255,255,.09)}
+.home-page .resources-trigger:hover,.home-page .resources-trigger[aria-expanded="true"]{background:rgba(255,255,255,.18)}
+.home-page .menu-toggle span:not(.sr-only){background:#fff}
+.minimal-hero{position:relative;isolation:isolate;overflow:hidden;padding:86px 0 78px;color:#fff;background:radial-gradient(ellipse at 82% 83%,rgba(31,100,130,.38),transparent 45%),#071d31}
+.minimal-hero:before{position:absolute;z-index:-1;inset:0;background:url("assets/perspective-grid.svg") center center/cover no-repeat;content:"";pointer-events:none}
+.minimal-hero:after{position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(7,29,49,.35),rgba(7,29,49,.06) 72%);content:"";pointer-events:none}
 .minimal-hero-inner{max-width:1120px}
 .minimal-hero .eyebrow,.minimal-section .eyebrow,.minimal-final .eyebrow{margin-bottom:22px;color:#17619a;font-size:.75rem;letter-spacing:.13em}
-.minimal-hero h1{max-width:900px;margin-bottom:25px;color:var(--navy);font-size:clamp(3.2rem,5.2vw,4.9rem);line-height:1.05;letter-spacing:-.055em}
-.minimal-hero-lead{max-width:660px;margin:0;color:#3b5368;font-size:clamp(1.13rem,1.8vw,1.35rem);line-height:1.55}
+.minimal-hero .eyebrow{color:#ffcf53}
+.minimal-hero h1{max-width:900px;margin-bottom:25px;color:#fff;font-size:clamp(3.2rem,5.2vw,4.9rem);line-height:1.05;letter-spacing:-.055em}
+.minimal-hero-lead{max-width:660px;margin:0;color:#d4e5f0;font-size:clamp(1.13rem,1.8vw,1.35rem);line-height:1.55}
 .minimal-actions{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin-top:34px}
 .minimal-hero .button,.minimal-final .button{border-radius:8px}
 .minimal-text-link,.minimal-inline-link{display:inline-flex;align-items:center;gap:10px;color:#17619a;font-weight:800}
+.minimal-hero .minimal-text-link{color:#d4e5f0}
 .minimal-text-link:hover,.minimal-inline-link:hover,.minimal-resource-note a:hover{text-decoration:underline}
-.minimal-brand-line{margin:58px 0 0;padding-top:19px;border-top:1px solid #d9e2ec;color:#5f7589;font-size:.86rem;font-weight:700}
+.minimal-brand-line{margin:58px 0 0;padding-top:19px;border-top:1px solid rgba(255,255,255,.22);color:#b4cedf;font-size:.86rem;font-weight:700}
 .minimal-section{padding:105px 0;border-top:1px solid #e1e8ef}
 .minimal-section-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:100px;align-items:start}
 .minimal-section h2{max-width:440px;margin:0;color:var(--navy);font-size:clamp(2.1rem,3.3vw,3.15rem)}
@@ -514,3 +523,5 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .minimal-final .button{flex:none}
 @media(max-width:900px){.minimal-hero{padding:88px 0 80px}.minimal-section{padding:76px 0}.minimal-section-grid{grid-template-columns:1fr;gap:30px}.minimal-section h2{max-width:650px}.minimal-brand-line{margin-top:62px}.minimal-final-inner{align-items:flex-start;flex-direction:column;gap:26px}}
 @media(max-width:600px){.minimal-hero{padding:68px 0 62px}.minimal-hero h1{font-size:clamp(2.65rem,11vw,4rem)}.minimal-actions{align-items:flex-start;flex-direction:column;gap:18px}.minimal-brand-line{margin-top:55px}.minimal-section{padding:62px 0}.minimal-process-list{grid-template-columns:1fr;gap:18px}.minimal-final{padding:66px 0}}
+@media(min-width:1201px){.home-page .site-nav>a:not(.nav-cta){color:#d4e5f0}.home-page .site-nav>a:not(.nav-cta):hover{color:#fff}}
+@media(max-width:1200px){.home-page .site-nav{color:var(--ink)}.home-page .site-nav .resources-trigger{color:var(--ink);background:#edf2f7}.home-page .site-nav .resources-trigger:hover,.home-page .site-nav .resources-trigger[aria-expanded="true"]{background:#dce9f4}}
