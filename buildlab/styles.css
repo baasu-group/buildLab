@@ -471,3 +471,46 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 .application-form.form-card .connect-form-feedback{margin-top:6px}
 .application-form.form-card #connect-session-field:not([hidden]){gap:10px}
 @media(max-width:680px){.application-form.form-card{padding:20px}}
+/* Minimal business-first homepage. */
+.home-page .site-header{background:rgba(255,255,255,.97)}
+.home-page .nav-wrap{min-height:70px}
+.home-page .site-nav .nav-cta{border-radius:8px}
+.minimal-hero{padding:86px 0 78px;background:#f7f9fb}
+.minimal-hero-inner{max-width:1120px}
+.minimal-hero .eyebrow,.minimal-section .eyebrow,.minimal-final .eyebrow{margin-bottom:22px;color:#17619a;font-size:.75rem;letter-spacing:.13em}
+.minimal-hero h1{max-width:900px;margin-bottom:25px;color:var(--navy);font-size:clamp(3.2rem,5.2vw,4.9rem);line-height:1.05;letter-spacing:-.055em}
+.minimal-hero-lead{max-width:660px;margin:0;color:#3b5368;font-size:clamp(1.13rem,1.8vw,1.35rem);line-height:1.55}
+.minimal-actions{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin-top:34px}
+.minimal-hero .button,.minimal-final .button{border-radius:8px}
+.minimal-text-link,.minimal-inline-link{display:inline-flex;align-items:center;gap:10px;color:#17619a;font-weight:800}
+.minimal-text-link:hover,.minimal-inline-link:hover,.minimal-resource-note a:hover{text-decoration:underline}
+.minimal-brand-line{margin:58px 0 0;padding-top:19px;border-top:1px solid #d9e2ec;color:#5f7589;font-size:.86rem;font-weight:700}
+.minimal-section{padding:105px 0;border-top:1px solid #e1e8ef}
+.minimal-section-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:100px;align-items:start}
+.minimal-section h2{max-width:440px;margin:0;color:var(--navy);font-size:clamp(2.1rem,3.3vw,3.15rem)}
+.minimal-section-body>p:first-child{max-width:610px;margin:4px 0 28px;color:#4d6479;font-size:1.08rem}
+.minimal-line-list{margin:0 0 22px;padding:0;list-style:none;border-top:1px solid #d9e2ec}
+.minimal-line-list li{display:grid;grid-template-columns:42px 1fr;gap:17px;padding:20px 0;border-bottom:1px solid #d9e2ec}
+.minimal-line-list li>span{padding-top:3px;color:#6d8295;font-size:.75rem;font-weight:900}
+.minimal-line-list strong{color:var(--navy);font-size:1.12rem}
+.minimal-line-list p{margin:3px 0 0;color:#5f7589;font-size:.94rem}
+.minimal-process{background:#f7f9fb}
+.minimal-process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:32px 0 25px;padding:0;list-style:none}
+.minimal-process-list li{padding-top:15px;border-top:2px solid #17619a}
+.minimal-process-list span{color:var(--navy);font-weight:850}
+.minimal-process-list p{margin:6px 0 0;color:#5f7589;font-size:.88rem;line-height:1.45}
+.minimal-path-links{border-top:1px solid #d9e2ec}
+.minimal-path-links a{display:grid;gap:4px;padding:19px 0;border-bottom:1px solid #d9e2ec}
+.minimal-path-links a:hover strong{color:#17619a}
+.minimal-path-links strong{color:var(--navy);font-size:1.13rem}
+.minimal-path-links span{color:#5f7589;font-size:.9rem}
+.minimal-resource-note{margin:26px 0 0;color:#5f7589;font-size:.9rem}
+.minimal-resource-note a{color:#17619a;font-weight:800}
+.minimal-final{padding:82px 0;color:#fff;background:#102a43}
+.minimal-final-inner{display:flex;align-items:center;justify-content:space-between;gap:50px}
+.minimal-final .eyebrow{color:#ffcf53}
+.minimal-final h2{max-width:650px;margin-bottom:12px;font-size:clamp(2.2rem,3.6vw,3.4rem)}
+.minimal-final p:last-child{margin:0;color:#d4e3ee}
+.minimal-final .button{flex:none}
+@media(max-width:900px){.minimal-hero{padding:88px 0 80px}.minimal-section{padding:76px 0}.minimal-section-grid{grid-template-columns:1fr;gap:30px}.minimal-section h2{max-width:650px}.minimal-brand-line{margin-top:62px}.minimal-final-inner{align-items:flex-start;flex-direction:column;gap:26px}}
+@media(max-width:600px){.minimal-hero{padding:68px 0 62px}.minimal-hero h1{font-size:clamp(2.65rem,11vw,4rem)}.minimal-actions{align-items:flex-start;flex-direction:column;gap:18px}.minimal-brand-line{margin-top:55px}.minimal-section{padding:62px 0}.minimal-process-list{grid-template-columns:1fr;gap:18px}.minimal-final{padding:66px 0}}
