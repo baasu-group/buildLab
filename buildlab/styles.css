@@ -527,3 +527,10 @@ section[id]{scroll-margin-top:82px}.section-note{margin:25px 0 0;color:var(--mut
 @media(max-width:1200px){.home-page .site-nav{color:var(--ink)}.home-page .site-nav .resources-trigger{color:var(--ink);background:#edf2f7}.home-page .site-nav .resources-trigger:hover,.home-page .site-nav .resources-trigger[aria-expanded="true"]{background:#dce9f4}}
 .business-page .business-resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:680px){.business-page .business-resource-grid{grid-template-columns:1fr}}
+/* Shared curved-grid motif across page introductions. */
+.page-hero,.opportunities-hero,.audience-hero,.business-hero,.journal-intro,.library-hero,.resource-hero,#contact.apply-section{position:relative;isolation:isolate;overflow:hidden}
+.page-hero::before,.opportunities-hero::before,.audience-hero::before,.business-hero::before,.journal-intro::before,.library-hero::before,.resource-hero::before,#contact.apply-section::before{position:absolute;z-index:-1;inset:0;background:url("assets/perspective-grid.svg") center center/cover no-repeat;content:"";pointer-events:none;transform:none}
+.page-hero-light::before,.audience-mentor::before,.audience-emerging::before,.journal-intro::before{opacity:.22}
+.page-hero:not(.page-hero-light)::before,.opportunities-hero::before,.audience-partnerships::before,.business-hero::before,.library-hero::before,.resource-hero::before,#contact.apply-section::before{opacity:.72}
+.journal-article-page{background-image:url("assets/perspective-grid.svg");background-position:center top;background-size:auto 560px;background-repeat:no-repeat}
+@media(max-width:680px){.page-hero::before,.opportunities-hero::before,.audience-hero::before,.business-hero::before,.journal-intro::before,.library-hero::before,.resource-hero::before,#contact.apply-section::before{background-size:auto 100%;background-position:center top}.journal-article-page{background-size:auto 430px}}
