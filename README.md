@@ -162,4 +162,16 @@ The project is divided into four main disciplines.
 
 The static GitHub Pages site lives in [`buildlab/`](./buildlab/). The root [`index.html`](./index.html) redirects visitors there so the existing Pages URL continues working. Configure application, feedback, contact, community, and calendar links in [`buildlab/script.js`](./buildlab/script.js), then follow the [GitHub Pages setup guide](./docs/GITHUB_PAGES.md). Deployment is intentionally gated so only `basan-ta` or `baasu-group` can publish changes from `main`.
 
+## Homepage partner logos
+
+The homepage includes a slow, continuously scrolling partner-logo strip directly below the hero section. The markup lives in [`buildlab/index.html`](./buildlab/index.html), and its styling and animation are defined in [`buildlab/styles.css`](./buildlab/styles.css).
+
+To add or replace a logo:
+
+1. Add the image or SVG to [`buildlab/assets/`](./buildlab/assets/).
+2. Add one logo item to both `.partner-logo-list` groups in `buildlab/index.html` so the marquee remains seamless.
+3. Use descriptive `alt` text in the first group. Keep the duplicated second group decorative with `alt=""`.
+
+The marquee pauses when reduced motion is enabled, and the logo strip remains usable on small screens.
+
 The curriculum hub is data-driven: update [`buildlab/resources/data.js`](./buildlab/resources/data.js) to add topics, official documentation, YouTube videos, search links, and real-world practice tasks for Frontend, Backend, UI/UX, QA, App Development, AI/ML, and DevOps.
