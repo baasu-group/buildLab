@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     aboutPanel.id = "about-popover";
     aboutPanel.className = "about-popover";
     aboutPanel.hidden = true;
-    aboutPanel.innerHTML = `<p class="nav-popover-label">Explore BuildLab</p><a href="${resourceHref("about.html")}"><strong>About us</strong><span>Meet the people and purpose behind the work.</span></a><a href="${resourceHref("expertise.html")}"><strong>Our expertise</strong><span>Explore the software and technology we build.</span></a><a href="${resourceHref("about.html#how-we-work")}"><strong>How we work</strong><span>See the shared process behind a project.</span></a><div class="about-popover-note"><strong>Learn together. Build something real.</strong><span>People, practice, and software working side by side.</span></div>`;
+    aboutPanel.innerHTML = `<p class="nav-popover-label">Explore BuildLab</p><a href="${resourceHref("about.html")}" class="about-popover-link"><strong>About us</strong><span>Meet the people and purpose behind the work.</span></a><a href="${resourceHref("expertise.html")}" class="about-popover-link"><strong>Our expertise</strong><span>Explore the software and technology we build.</span></a><a href="${resourceHref("about.html#how-we-work")}" class="about-popover-link"><strong>How we work</strong><span>See the shared process behind a project.</span></a>`;
     if (location.pathname.endsWith("/about.html") || location.pathname.endsWith("/expertise.html")) aboutTrigger.classList.add("is-current");
     aboutWrapper.append(aboutTrigger, aboutPanel);
     if (aboutLink) aboutLink.replaceWith(aboutWrapper);
